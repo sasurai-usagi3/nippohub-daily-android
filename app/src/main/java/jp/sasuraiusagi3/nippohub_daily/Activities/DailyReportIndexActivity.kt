@@ -1,7 +1,8 @@
-package jp.sasuraiusagi3.nippohub_daily
+package jp.sasuraiusagi3.nippohub_daily.Activities
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import jp.sasuraiusagi3.nippohub_daily.R
 
 class DailyReportIndexActivity : AppCompatActivity() {
 
