@@ -14,4 +14,8 @@ object AccountManager {
     fun signIn(email: String, password: String, callbackComplete: (Task<AuthResult>) -> Unit, callbackFailure: (Exception) -> Unit) {
         auth.signInWithEmailAndPassword(email, password).addOnCompleteListener(callbackComplete).addOnFailureListener(callbackFailure)
     }
+
+    fun signUp(email: String, password: String, callbackComplete: (Task<AuthResult>) -> Unit, callbackFailure: (Exception) -> Unit) {
+        auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(callbackComplete).addOnFailureListener(callbackFailure)
+    }
 }

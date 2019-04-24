@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="jp.sasuraiusagi3.nippohub_daily.activities.SignInActivity">
+    tools:context="jp.sasuraiusagi3.nippohub_daily.activities.SignUpActivity">
 
     <TextView
-        android:id="@+id/signInLabelEmail"
+        android:id="@+id/signUpLabelEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="email"
@@ -16,46 +16,54 @@
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginTop="40dp" />
     <EditText
-        android:id="@+id/signInFormEmail"
+        android:id="@+id/signUpFormEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/signInLabelEmail"
+        app:layout_constraintTop_toBottomOf="@id/signUpLabelEmail"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginTop="10dp" />
     <TextView
-        android:id="@+id/signInLabelPassword"
+        android:id="@+id/signUpLabelPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="password"
-        app:layout_constraintTop_toBottomOf="@id/signInFormEmail"
+        app:layout_constraintTop_toBottomOf="@id/signUpFormEmail"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginTop="20dp" />
     <EditText
-        android:id="@+id/signInFormPassword"
+        android:id="@+id/signUpFormPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/signInLabelPassword"
+        app:layout_constraintTop_toBottomOf="@id/signUpLabelPassword"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="10dp" />
+    <TextView
+        android:id="@+id/signUpLabelPasswordConfirmation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="password confirmation"
+        app:layout_constraintTop_toBottomOf="@id/signUpFormPassword"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="20dp" />
+    <EditText
+        android:id="@+id/signUpFormPasswordConfirmation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/signUpLabelPasswordConfirmation"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginTop="10dp" />
     <Button
-        android:id="@+id/signInButtonSubmit"
+        android:id="@+id/signUpButtonSubmit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="サインイン"
-        app:layout_constraintTop_toBottomOf="@id/signInFormPassword"
+        android:text="サインアップ"
+        app:layout_constraintTop_toBottomOf="@id/signUpFormPasswordConfirmation"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginTop="40dp" />
-    <Button
-        android:id="@+id/signInButtonToSignUp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="登録する"
-        app:layout_constraintTop_toBottomOf="@id/signInButtonSubmit"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="20dp" />
 </android.support.constraint.ConstraintLayout>

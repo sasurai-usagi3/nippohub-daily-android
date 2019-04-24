@@ -1,5 +1,6 @@
 package jp.sasuraiusagi3.nippohub_daily.activities
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -16,6 +17,7 @@ class SignInActivity : AppCompatActivity() {
         val formEmail = findViewById<EditText>(R.id.signInFormEmail)
         val formPassword = findViewById<EditText>(R.id.signInFormPassword)
         val btnSubmit = findViewById<Button>(R.id.signInButtonSubmit)
+        val btnToSignUp = findViewById<Button>(R.id.signInButtonToSignUp)
 
         btnSubmit.setOnClickListener {
             AccountManager.signIn(
@@ -32,6 +34,12 @@ class SignInActivity : AppCompatActivity() {
                         println("|------|")
                     }
             )
+        }
+
+        btnToSignUp.setOnClickListener {
+            val intent = Intent(this, SignUpActivity::class.java)
+
+            startActivity(intent)
         }
     }
 }
