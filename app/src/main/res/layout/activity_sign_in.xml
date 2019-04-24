@@ -48,5 +48,14 @@
         app:layout_constraintTop_toBottomOf="@id/signInFormPassword"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="40dp" />/>
+        android:layout_marginTop="40dp" />
+    <Button
+        android:id="@+id/signInButtonToSignUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="登録する"
+        app:layout_constraintTop_toBottomOf="@id/signInButtonSubmit"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="20dp" />
 </android.support.constraint.ConstraintLayout>
