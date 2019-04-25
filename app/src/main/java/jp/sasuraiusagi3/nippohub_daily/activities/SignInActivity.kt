@@ -24,9 +24,9 @@ class SignInActivity : AppCompatActivity() {
                     formEmail.text.toString(),
                     formPassword.text.toString(),
                     {
-                        println("------")
-                        println(it)
-                        println("------")
+                        val intent = Intent(this, DailyReportIndexActivity::class.java)
+
+                        startActivity(intent)
                     },
                     {
                         println("|------|")
