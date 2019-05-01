@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="jp.sasuraiusagi3.nippohub_daily.activities.NewDailyReportActivity">
+    <TextView
+        android:id="@+id/newDailyReportLabelDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="date" />
+    <DatePicker
+        android:id="@+id/newDailyReportFormDate"
+        android:datePickerMode="spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/newDailyReportLabelDate">
+    </DatePicker>
+    <TextView
+        android:id="@+id/newDailyReportLabelTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/newDailyReportFormDate"
+        android:text="title" />
+    <EditText
+        android:id="@+id/newDailyReportFormTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/newDailyReportLabelTitle" />
+    <TextView
+        android:id="@+id/newDailyReportLabelContent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/newDailyReportFormTitle"
+        android:text="content" />
+    <EditText
+        android:id="@+id/newDailyReportFormContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/newDailyReportLabelContent" />
+    <Button
+        android:id="@+id/newDailyReportBtnSubmit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/newDailyReportFormContent"
+        android:text="作成"/>
+
+
+</android.support.constraint.ConstraintLayout>
