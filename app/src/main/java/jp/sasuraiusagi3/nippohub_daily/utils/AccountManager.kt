@@ -10,6 +10,9 @@ import com.google.firebase.auth.FirebaseAuth
 
 object AccountManager {
     private val auth = FirebaseAuth.getInstance()
+    val currentUser
+        get() = auth.currentUser
+
 
     fun signIn(email: String, password: String, callbackComplete: (Task<AuthResult>) -> Unit, callbackFailure: (Exception) -> Unit) {
         auth.signInWithEmailAndPassword(email, password).addOnCompleteListener(callbackComplete).addOnFailureListener(callbackFailure)

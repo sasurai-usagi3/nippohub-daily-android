@@ -1,5 +1,6 @@
 package jp.sasuraiusagi3.nippohub_daily.activities
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -24,9 +25,9 @@ class SignUpActivity : AppCompatActivity() {
                         formEmail.text.toString(),
                         formPassword.text.toString(),
                         {
-                            println("------")
-                            println(it)
-                            println("------")
+                            val intent = Intent(this, DailyReportIndexActivity::class.java)
+
+                            startActivity(intent)
                         },
                         {
                             println("|------|")
