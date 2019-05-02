@@ -1,7 +1,9 @@
 package jp.sasuraiusagi3.nippohub_daily.activities
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
 import android.widget.ListView
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -22,6 +24,7 @@ class DailyReportIndexActivity : AppCompatActivity() {
         val currentUser = AccountManager.currentUser ?: return
         val database = FirebaseDatabase.getInstance().getReference("/users/${currentUser.uid}/daily_reports")
         val dailyReportList = findViewById<ListView>(R.id.dailyReportIndexDailyReportList)
+        val btnToNew = findViewById<Button>(R.id.dailyReportIndexBtnToNew)
         val adapter = DailyReportListAdapter(this)
 
         dailyReportList.adapter = adapter
@@ -29,6 +32,12 @@ class DailyReportIndexActivity : AppCompatActivity() {
         adapter.notifyDataSetChanged()
 
         database.addValueEventListener(DailyReportIndexFetcher(adapter))
+
+        btnToNew.setOnClickListener {
+            val intent = Intent(this, NewDailyReportActivity::class.java)
+
+            startActivity(intent)
+        }
     }
 
     class DailyReportIndexFetcher(private val adapter: DailyReportListAdapter): ValueEventListener {
