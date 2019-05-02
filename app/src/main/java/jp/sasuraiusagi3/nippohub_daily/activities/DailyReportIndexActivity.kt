@@ -69,6 +69,9 @@ class DailyReportIndexActivity : AppCompatActivity() {
     class DailyReportListClickListener(private val context: Context): AdapterView.OnItemClickListener {
         override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
             val intent = Intent(context, DailyReportShowActivity::class.java)
+            val dailyReport = parent?.adapter?.getItem(position) as DailyReport
+
+            intent.putExtra(DailyReportShowActivity.DAILY_REPORT, dailyReport)
 
             context.startActivity(intent)
         }

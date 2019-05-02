@@ -1,5 +1,6 @@
 package jp.sasuraiusagi3.nippohub_daily.models
 
+import java.io.Serializable
 import java.time.LocalDate
 
 /**
@@ -11,4 +12,4 @@ data class DailyReport(
         val date: LocalDate,
         val title: String,
         val content: String
-)
+): Serializable
