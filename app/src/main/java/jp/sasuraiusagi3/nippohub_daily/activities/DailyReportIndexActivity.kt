@@ -45,7 +45,7 @@ class DailyReportIndexActivity : AppCompatActivity() {
         dailyReportList.onItemClickListener = DailyReportListClickListener(this)
     }
 
-    class DailyReportIndexFetcher(private val adapter: DailyReportListAdapter): ValueEventListener {
+    private class DailyReportIndexFetcher(private val adapter: DailyReportListAdapter): ValueEventListener {
         override fun onCancelled(r: DatabaseError) {
             TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
         }
@@ -66,7 +66,7 @@ class DailyReportIndexActivity : AppCompatActivity() {
 
     }
 
-    class DailyReportListClickListener(private val context: Context): AdapterView.OnItemClickListener {
+    private class DailyReportListClickListener(private val context: Context): AdapterView.OnItemClickListener {
         override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
             val intent = Intent(context, DailyReportShowActivity::class.java)
             val dailyReport = parent?.adapter?.getItem(position) as DailyReport
