@@ -36,7 +36,7 @@ class DailyReportShowActivity : AppCompatActivity() {
                     .replace("\n", "\\n")
                     .replace("\"", "\\\"")
 
-            view.evaluateJavascript("rendering('$title', \"$content\")", {println("--------");println(it);println("--------");})
+            view.evaluateJavascript("rendering('$title', \"$content\")", null)
         }
     }
 }
