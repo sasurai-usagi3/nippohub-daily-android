@@ -18,7 +18,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".activities.SignUpActivity" />
-        <activity android:name=".activities.NewDailyReportActivity"></activity>
+        <activity android:name=".activities.NewDailyReportActivity" />
+        <activity android:name=".activities.DailyReportShowActivity"></activity>
     </application>
 
 </manifest>

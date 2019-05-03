@@ -1,8 +1,11 @@
 package jp.sasuraiusagi3.nippohub_daily.activities
 
+import android.content.Context
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.widget.AdapterView
 import android.widget.Button
 import android.widget.ListView
 import com.google.firebase.database.DataSnapshot
@@ -38,6 +41,8 @@ class DailyReportIndexActivity : AppCompatActivity() {
 
             startActivity(intent)
         }
+
+        dailyReportList.onItemClickListener = DailyReportListClickListener(this)
     }
 
     class DailyReportIndexFetcher(private val adapter: DailyReportListAdapter): ValueEventListener {
@@ -59,5 +64,16 @@ class DailyReportIndexActivity : AppCompatActivity() {
             adapter.notifyDataSetChanged()
         }
 
+    }
+
+    class DailyReportListClickListener(private val context: Context): AdapterView.OnItemClickListener {
+        override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+            val intent = Intent(context, DailyReportShowActivity::class.java)
+            val dailyReport = parent?.adapter?.getItem(position) as DailyReport
+
+            intent.putExtra(DailyReportShowActivity.DAILY_REPORT, dailyReport)
+
+            context.startActivity(intent)
+        }
     }
 }
