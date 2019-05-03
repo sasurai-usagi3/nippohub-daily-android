@@ -35,6 +35,8 @@ class NewDailyReportActivity : AppCompatActivity() {
                             "createdAt" to System.currentTimeMillis()
                     )
             )
+
+            finish()
         }
     }
 }
