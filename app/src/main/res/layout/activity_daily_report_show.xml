@@ -5,5 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="jp.sasuraiusagi3.nippohub_daily.activities.DailyReportShowActivity">
-
+    <WebView
+        android:id="@+id/dailyReportShowWebView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </WebView>
 </android.support.constraint.ConstraintLayout>
