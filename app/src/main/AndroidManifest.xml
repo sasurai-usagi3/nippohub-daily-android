@@ -19,7 +19,8 @@
         </activity>
         <activity android:name=".activities.SignUpActivity" />
         <activity android:name=".activities.NewDailyReportActivity" />
-        <activity android:name=".activities.DailyReportShowActivity"></activity>
+        <activity android:name=".activities.DailyReportShowActivity" />
+        <activity android:name=".activities.EditDailyReportActivity"></activity>
     </application>
 
 </manifest>
