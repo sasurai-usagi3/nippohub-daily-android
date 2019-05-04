@@ -13,7 +13,6 @@ object AccountManager {
     val currentUser
         get() = auth.currentUser
 
-
     fun signIn(email: String, password: String, callbackComplete: (Task<AuthResult>) -> Unit, callbackFailure: (Exception) -> Unit) {
         auth.signInWithEmailAndPassword(email, password).addOnCompleteListener(callbackComplete).addOnFailureListener(callbackFailure)
     }
@@ -21,4 +20,6 @@ object AccountManager {
     fun signUp(email: String, password: String, callbackComplete: (Task<AuthResult>) -> Unit, callbackFailure: (Exception) -> Unit) {
         auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(callbackComplete).addOnFailureListener(callbackFailure)
     }
+
+    fun didSignIn() = this.currentUser != null
 }
