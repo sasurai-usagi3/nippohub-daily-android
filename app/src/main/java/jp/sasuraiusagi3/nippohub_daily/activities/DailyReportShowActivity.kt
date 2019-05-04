@@ -8,10 +8,21 @@ import android.webkit.WebViewClient
 import android.widget.Button
 import jp.sasuraiusagi3.nippohub_daily.R
 import jp.sasuraiusagi3.nippohub_daily.models.DailyReport
+import jp.sasuraiusagi3.nippohub_daily.utils.AccountManager
 
 class DailyReportShowActivity : AppCompatActivity() {
     companion object {
         const val DAILY_REPORT = "dailyReport"
+    }
+
+    override fun onStart() {
+        super.onStart()
+
+        if (!AccountManager.didSignIn()) {
+            val intent = Intent(this, SignInActivity::class.java)
+
+            startActivity(intent)
+        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -1,5 +1,6 @@
 package jp.sasuraiusagi3.nippohub_daily.activities
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
@@ -15,6 +16,16 @@ import java.time.LocalDate
 class EditDailyReportActivity : AppCompatActivity() {
     companion object {
         const val DAILY_REPORT = "dailyReport"
+    }
+
+    override fun onStart() {
+        super.onStart()
+
+        if (!AccountManager.didSignIn()) {
+            val intent = Intent(this, SignInActivity::class.java)
+
+            startActivity(intent)
+        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

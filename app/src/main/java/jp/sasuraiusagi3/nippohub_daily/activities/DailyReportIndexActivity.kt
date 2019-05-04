@@ -20,6 +20,16 @@ import java.time.LocalDate
 
 class DailyReportIndexActivity : AppCompatActivity() {
 
+    override fun onStart() {
+        super.onStart()
+
+        if (!AccountManager.didSignIn()) {
+            val intent = Intent(this, SignInActivity::class.java)
+
+            startActivity(intent)
+        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_daily_report_index)
