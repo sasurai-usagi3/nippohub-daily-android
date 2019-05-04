@@ -9,6 +9,15 @@ import jp.sasuraiusagi3.nippohub_daily.R
 import jp.sasuraiusagi3.nippohub_daily.utils.AccountManager
 
 class SignInActivity : AppCompatActivity() {
+    override fun onStart() {
+        super.onStart()
+
+        if (AccountManager.didSignIn()) {
+            val intent = Intent(this, DailyReportIndexActivity::class.java)
+
+            startActivity(intent)
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

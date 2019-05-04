@@ -1,5 +1,6 @@
 package jp.sasuraiusagi3.nippohub_daily.activities
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.widget.Button
@@ -11,6 +12,15 @@ import jp.sasuraiusagi3.nippohub_daily.utils.AccountManager
 import java.time.LocalDate
 
 class NewDailyReportActivity : AppCompatActivity() {
+    override fun onStart() {
+        super.onStart()
+
+        if (!AccountManager.didSignIn()) {
+            val intent = Intent(this, SignInActivity::class.java)
+
+            startActivity(intent)
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
