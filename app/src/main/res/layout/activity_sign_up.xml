@@ -72,4 +72,11 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/signUpButtonSubmit"
         android:text="プライバシーポリシー" />
+    <Button
+        android:id="@+id/signUpButtonToAgreements"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/signUpButtonSubmit"
+        app:layout_constraintLeft_toRightOf="@id/signUpButtonToPrivacy"
+        android:text="利用規約" />
 </android.support.constraint.ConstraintLayout>
