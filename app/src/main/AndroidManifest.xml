@@ -20,7 +20,9 @@
         <activity android:name=".activities.SignUpActivity" />
         <activity android:name=".activities.NewDailyReportActivity" />
         <activity android:name=".activities.DailyReportShowActivity" />
-        <activity android:name=".activities.EditDailyReportActivity"></activity>
+        <activity android:name=".activities.EditDailyReportActivity" />
+        <activity android:name=".activities.PrivacyActivity" />
+        <activity android:name=".activities.AgreementsActivity"></activity>
     </application>
 
 </manifest>
