@@ -27,6 +27,7 @@ class SignUpActivity : AppCompatActivity() {
         val formPassword = findViewById<EditText>(R.id.signUpFormPassword)
         val formPasswordConfirmation = findViewById<EditText>(R.id.signUpFormPasswordConfirmation)
         val btnSubmit = findViewById<Button>(R.id.signUpButtonSubmit)
+        val btnToPrivacy = findViewById<Button>(R.id.signUpButtonToPrivacy)
 
         btnSubmit.setOnClickListener {
             if (formPassword.text.toString() == formPasswordConfirmation.text.toString()) {
@@ -45,6 +46,12 @@ class SignUpActivity : AppCompatActivity() {
                         }
                 )
             }
+        }
+
+        btnToPrivacy.setOnClickListener {
+            val intent = Intent(this, PrivacyActivity::class.java)
+
+            startActivity(intent)
         }
     }
 }
