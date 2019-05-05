@@ -30,7 +30,7 @@ class NewDailyReportActivity : AppCompatActivity() {
         val formDate = findViewById<DatePicker>(R.id.newDailyReportFormDate)
         val formTitle = findViewById<EditText>(R.id.newDailyReportFormTitle)
         val formContent = findViewById<EditText>(R.id.newDailyReportFormContent)
-        val btnToSubmit = findViewById<Button>(R.id.newDailyReportBtnSubmit)
+        val btnToSubmit = findViewById<Button>(R.id.newDailyReportButtonSubmit)
         val database = FirebaseDatabase.getInstance().getReference("/users/${currentUser.uid}/daily_reports")
 
         btnToSubmit.setOnClickListener {

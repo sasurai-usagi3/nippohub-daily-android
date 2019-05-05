@@ -31,7 +31,7 @@ class DailyReportShowActivity : AppCompatActivity() {
 
         val dailyReport = this.intent.getSerializableExtra(DAILY_REPORT) as DailyReport
         val webview = findViewById<WebView>(R.id.dailyReportShowWebView)
-        val btnToEdit = findViewById<Button>(R.id.dailyReportShowBtnToEdit)
+        val btnToEdit = findViewById<Button>(R.id.dailyReportShowButtonToEdit)
 
         webview.webViewClient = WebClientForDailyReport(dailyReport)
         webview.settings.javaScriptEnabled = true

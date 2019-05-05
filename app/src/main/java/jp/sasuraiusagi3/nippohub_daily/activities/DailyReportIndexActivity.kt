@@ -37,7 +37,7 @@ class DailyReportIndexActivity : AppCompatActivity() {
         val currentUser = AccountManager.currentUser ?: return
         val database = FirebaseDatabase.getInstance().getReference("/users/${currentUser.uid}/daily_reports")
         val dailyReportList = findViewById<ListView>(R.id.dailyReportIndexDailyReportList)
-        val btnToNew = findViewById<Button>(R.id.dailyReportIndexBtnToNew)
+        val btnToNew = findViewById<Button>(R.id.dailyReportIndexButtonToNew)
         val adapter = DailyReportListAdapter(this)
 
         dailyReportList.adapter = adapter

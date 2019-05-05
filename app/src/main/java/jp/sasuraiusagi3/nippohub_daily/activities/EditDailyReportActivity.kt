@@ -3,7 +3,6 @@ package jp.sasuraiusagi3.nippohub_daily.activities
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.text.Editable
 import android.widget.Button
 import android.widget.DatePicker
 import android.widget.EditText
@@ -37,7 +36,7 @@ class EditDailyReportActivity : AppCompatActivity() {
         val formDate = findViewById<DatePicker>(R.id.editDailyReportFormDate)
         val formTitle = findViewById<EditText>(R.id.editDailyReportFormTitle)
         val formContent = findViewById<EditText>(R.id.editDailyReportFormContent)
-        val btnToSubmit = findViewById<Button>(R.id.editDailyReportBtnSubmit)
+        val btnToSubmit = findViewById<Button>(R.id.editDailyReportButtonSubmit)
         val database = FirebaseDatabase.getInstance().getReference("/users/${currentUser.uid}/daily_reports/${dailyReport.id}")
 
         formDate.updateDate(dailyReport.date.year, dailyReport.date.monthValue - 1, dailyReport.date.dayOfMonth)
