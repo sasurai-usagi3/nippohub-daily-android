@@ -6,10 +6,19 @@
     android:layout_height="match_parent"
     tools:context="jp.sasuraiusagi3.nippohub_daily.activities.DailyReportIndexActivity">
 
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/dailyReportIndexToolBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/Base.ThemeOverlay.AppCompat.ActionBar"
+        android:minHeight="?attr/actionBarSize"
+        android:background="?attr/colorPrimary">
+    </android.support.v7.widget.Toolbar>
     <ListView
         android:id="@+id/dailyReportIndexDailyReportList"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/dailyReportIndexToolBar">
     </ListView>
     <Button
         android:id="@+id/dailyReportIndexButtonToNew"
