@@ -31,6 +31,7 @@ class NewDailyReportActivity : AppCompatActivity() {
         val formTitle = findViewById<EditText>(R.id.newDailyReportFormTitle)
         val formContent = findViewById<EditText>(R.id.newDailyReportFormContent)
         val btnToSubmit = findViewById<Button>(R.id.newDailyReportButtonSubmit)
+        val btnToBack = findViewById<Button>(R.id.newDailyReportButtonToBack)
         val database = FirebaseDatabase.getInstance().getReference("/users/${currentUser.uid}/daily_reports")
 
         btnToSubmit.setOnClickListener {
@@ -46,6 +47,10 @@ class NewDailyReportActivity : AppCompatActivity() {
                     )
             )
 
+            finish()
+        }
+
+        btnToBack.setOnClickListener {
             finish()
         }
     }
