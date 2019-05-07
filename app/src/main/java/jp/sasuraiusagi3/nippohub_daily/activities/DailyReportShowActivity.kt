@@ -32,6 +32,7 @@ class DailyReportShowActivity : AppCompatActivity() {
         val dailyReport = this.intent.getSerializableExtra(DAILY_REPORT) as DailyReport
         val webview = findViewById<WebView>(R.id.dailyReportShowWebView)
         val btnToEdit = findViewById<Button>(R.id.dailyReportShowButtonToEdit)
+        val btnToBack = findViewById<Button>(R.id.dailyReportShowButtonToBack)
 
         webview.webViewClient = WebClientForDailyReport(dailyReport)
         webview.settings.javaScriptEnabled = true
@@ -43,6 +44,10 @@ class DailyReportShowActivity : AppCompatActivity() {
             intent.putExtra(EditDailyReportActivity.DAILY_REPORT, dailyReport)
 
             startActivity(intent)
+        }
+
+        btnToBack.setOnClickListener {
+            finish()
         }
     }
 

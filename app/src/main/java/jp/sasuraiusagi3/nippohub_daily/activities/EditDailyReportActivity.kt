@@ -37,6 +37,7 @@ class EditDailyReportActivity : AppCompatActivity() {
         val formTitle = findViewById<EditText>(R.id.editDailyReportFormTitle)
         val formContent = findViewById<EditText>(R.id.editDailyReportFormContent)
         val btnToSubmit = findViewById<Button>(R.id.editDailyReportButtonSubmit)
+        val btnToBack = findViewById<Button>(R.id.editDailyReportButtonToBack)
         val database = FirebaseDatabase.getInstance().getReference("/users/${currentUser.uid}/daily_reports/${dailyReport.id}")
 
         formDate.updateDate(dailyReport.date.year, dailyReport.date.monthValue - 1, dailyReport.date.dayOfMonth)
@@ -55,6 +56,10 @@ class EditDailyReportActivity : AppCompatActivity() {
                     )
             )
 
+            finish()
+        }
+
+        btnToBack.setOnClickListener {
             finish()
         }
     }
