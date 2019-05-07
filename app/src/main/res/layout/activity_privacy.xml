@@ -5,19 +5,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="jp.sasuraiusagi3.nippohub_daily.activities.PrivacyActivity">
-
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/privacyToolBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="?attr/actionBarSize"
+        android:background="?attr/colorPrimary">
+        <Button
+            android:id="@+id/privacyButtonToBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="閉じる" />
+    </android.support.v7.widget.Toolbar>
     <WebView
         android:id="@+id/privacyWebview"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></WebView>
-
-    <Button
-        android:id="@+id/privacyButtonToBack"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:layout_marginBottom="40dp"
-        app:layout_constraintTop_toBottomOf="@+id/privacyWebview"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:text="閉じる" />
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/privacyToolBar"
+        app:layout_constraintBottom_toBottomOf="parent">
+    </WebView>
 </android.support.constraint.ConstraintLayout>
