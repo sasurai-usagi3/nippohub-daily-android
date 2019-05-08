@@ -10,19 +10,20 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".activities.DailyReportIndexActivity" />
-        <activity android:name=".activities.SignInActivity">
+        <activity android:name=".activities.SignInActivity" />
+        <activity android:name=".activities.SignUpActivity" />
+        <activity android:name=".activities.NewDailyReportActivity" />
+        <activity android:name=".activities.DailyReportShowActivity" />
+        <activity android:name=".activities.EditDailyReportActivity" />
+        <activity android:name=".activities.PrivacyActivity" />
+        <activity android:name=".activities.AgreementsActivity" />
+        <activity android:name=".activities.LaunchActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.SignUpActivity" />
-        <activity android:name=".activities.NewDailyReportActivity" />
-        <activity android:name=".activities.DailyReportShowActivity" />
-        <activity android:name=".activities.EditDailyReportActivity" />
-        <activity android:name=".activities.PrivacyActivity" />
-        <activity android:name=".activities.AgreementsActivity"></activity>
     </application>
 
 </manifest>
