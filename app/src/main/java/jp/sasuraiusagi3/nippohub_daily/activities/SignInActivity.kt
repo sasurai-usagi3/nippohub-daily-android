@@ -51,4 +51,8 @@ class SignInActivity : AppCompatActivity() {
             startActivity(intent)
         }
     }
+
+    // 戻れないようにしている
+    override fun onBackPressed() {
+    }
 }

@@ -55,6 +55,10 @@ class DailyReportIndexActivity : AppCompatActivity() {
         dailyReportList.onItemClickListener = DailyReportListClickListener(this)
     }
 
+    // 戻れないようにしている
+    override fun onBackPressed() {
+    }
+
     private class DailyReportIndexFetcher(private val adapter: DailyReportListAdapter): ValueEventListener {
         override fun onCancelled(r: DatabaseError) {
             TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
