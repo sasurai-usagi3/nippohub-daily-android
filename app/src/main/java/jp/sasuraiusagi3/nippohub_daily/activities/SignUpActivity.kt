@@ -39,6 +39,7 @@ class SignUpActivity : AppCompatActivity() {
                             val intent = Intent(this, DailyReportIndexActivity::class.java)
 
                             startActivity(intent)
+                            finish()
                         },
                         {
                             println("|------|")
