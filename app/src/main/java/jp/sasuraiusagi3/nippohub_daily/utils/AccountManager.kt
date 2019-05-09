@@ -21,5 +21,9 @@ object AccountManager {
         auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(callbackComplete).addOnFailureListener(callbackFailure)
     }
 
+    fun signOut() {
+        auth.signOut()
+    }
+
     fun didSignIn() = this.currentUser != null
 }
