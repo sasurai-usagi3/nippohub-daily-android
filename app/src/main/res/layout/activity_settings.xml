@@ -4,29 +4,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="jp.sasuraiusagi3.nippohub_daily.activities.DailyReportIndexActivity">
+    tools:context="jp.sasuraiusagi3.nippohub_daily.activities.SettingsActivity">
 
     <android.support.v7.widget.Toolbar
-        android:id="@+id/dailyReportIndexToolBar"
+        android:id="@+id/settingsToolBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:minHeight="?attr/actionBarSize"
         android:background="?attr/colorPrimary">
         <Button
-            android:id="@+id/dailyReportIndexButtonToNew"
+            android:id="@+id/settingsButtonToBack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="new" />
-        <Button
-            android:id="@+id/dailyReportIndexButtonToSettings"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="setting" />
+            android:text="戻る" />
     </android.support.v7.widget.Toolbar>
     <ListView
-        android:id="@+id/dailyReportIndexDailyReportList"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/dailyReportIndexToolBar">
-    </ListView>
+        android:id="@+id/settingsListView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:entries="@array/settings"
+        app:layout_constraintTop_toBottomOf="@id/settingsToolBar"
+        app:layout_constraintBottom_toBottomOf="parent" />
 </android.support.constraint.ConstraintLayout>

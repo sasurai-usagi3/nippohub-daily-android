@@ -38,6 +38,7 @@ class DailyReportIndexActivity : AppCompatActivity() {
         val database = FirebaseDatabase.getInstance().getReference("/users/${currentUser.uid}/daily_reports")
         val dailyReportList = findViewById<ListView>(R.id.dailyReportIndexDailyReportList)
         val btnToNew = findViewById<Button>(R.id.dailyReportIndexButtonToNew)
+        val btnToSetting = findViewById<Button>(R.id.dailyReportIndexButtonToSettings)
         val adapter = DailyReportListAdapter(this)
 
         dailyReportList.adapter = adapter
@@ -48,6 +49,12 @@ class DailyReportIndexActivity : AppCompatActivity() {
 
         btnToNew.setOnClickListener {
             val intent = Intent(this, NewDailyReportActivity::class.java)
+
+            startActivity(intent)
+        }
+
+        btnToSetting.setOnClickListener {
+            val intent = Intent(this, SettingsActivity::class.java)
 
             startActivity(intent)
         }
