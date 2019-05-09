@@ -17,6 +17,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="new" />
+        <Button
+            android:id="@+id/dailyReportIndexButtonToSettings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="setting" />
     </android.support.v7.widget.Toolbar>
     <ListView
         android:id="@+id/dailyReportIndexDailyReportList"
