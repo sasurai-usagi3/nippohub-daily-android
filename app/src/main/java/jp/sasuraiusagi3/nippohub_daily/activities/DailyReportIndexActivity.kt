@@ -57,7 +57,6 @@ class DailyReportIndexActivity : AppCompatActivity() {
 
     private class DailyReportIndexFetcher(private val adapter: DailyReportListAdapter): ValueEventListener {
         override fun onCancelled(r: DatabaseError) {
-            TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
         }
 
         override fun onDataChange(r: DataSnapshot) {
