@@ -35,31 +35,20 @@ class DailyReportIndexActivity : AppCompatActivity() {
         setContentView(R.layout.activity_daily_report_index)
 
         val currentUser = AccountManager.currentUser ?: return
-        val database = FirebaseDatabase.getInstance().getReference("/users/${currentUser.uid}/daily_reports")
-        val dailyReportList = findViewById<ListView>(R.id.dailyReportIndexDailyReportList)
-        val btnToNew = findViewById<Button>(R.id.dailyReportIndexButtonToNew)
-        val btnToSetting = findViewById<Button>(R.id.dailyReportIndexButtonToSettings)
         val adapter = DailyReportListAdapter(this)
-
-        dailyReportList.adapter = adapter
-
-        adapter.notifyDataSetChanged()
-
-        database.addValueEventListener(DailyReportIndexFetcher(adapter))
-
-        btnToNew.setOnClickListener {
-            val intent = Intent(this, NewDailyReportActivity::class.java)
-
-            startActivity(intent)
+        findViewById<Button>(R.id.dailyReportIndexButtonToNew).also {
+            it.setOnClickListener(ButtonToNewClickListener(this))
         }
-
-        btnToSetting.setOnClickListener {
-            val intent = Intent(this, SettingsActivity::class.java)
-
-            startActivity(intent)
+        findViewById<Button>(R.id.dailyReportIndexButtonToSettings).also {
+            it.setOnClickListener(ButtonToSettingsClickListener(this))
         }
-
-        dailyReportList.onItemClickListener = DailyReportListClickListener(this)
+        findViewById<ListView>(R.id.dailyReportIndexDailyReportList).also {
+            it.adapter = adapter
+            it.onItemClickListener = DailyReportListClickListener(this)
+        }
+        FirebaseDatabase.getInstance().getReference("/users/${currentUser.uid}/daily_reports").apply {
+            this.addValueEventListener(DailyReportIndexFetcher(adapter))
+        }
     }
 
     private class DailyReportIndexFetcher(private val adapter: DailyReportListAdapter): ValueEventListener {
@@ -79,7 +68,6 @@ class DailyReportIndexActivity : AppCompatActivity() {
             adapter.dailyReports = dailyReports
             adapter.notifyDataSetChanged()
         }
-
     }
 
     private class DailyReportListClickListener(private val context: Context): AdapterView.OnItemClickListener {
@@ -90,6 +78,22 @@ class DailyReportIndexActivity : AppCompatActivity() {
             intent.putExtra(DailyReportShowActivity.DAILY_REPORT, dailyReport)
 
             context.startActivity(intent)
+        }
+    }
+
+    private class ButtonToSettingsClickListener(private val context: Context): View.OnClickListener {
+        override fun onClick(v: View?) {
+            val intent = Intent(this.context, SettingsActivity::class.java)
+
+            this.context.startActivity(intent)
+        }
+    }
+
+    private class ButtonToNewClickListener(private val context: Context): View.OnClickListener {
+        override fun onClick(v: View?) {
+            val intent = Intent(this.context, NewDailyReportActivity::class.java)
+
+            this.context.startActivity(intent)
         }
     }
 }
