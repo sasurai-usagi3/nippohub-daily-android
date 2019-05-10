@@ -8,6 +8,7 @@ import android.widget.DatePicker
 import android.widget.EditText
 import com.google.firebase.database.FirebaseDatabase
 import jp.sasuraiusagi3.nippohub_daily.R
+import jp.sasuraiusagi3.nippohub_daily.listeners.ButtonToBackClickListener
 import jp.sasuraiusagi3.nippohub_daily.models.DailyReport
 import jp.sasuraiusagi3.nippohub_daily.utils.AccountManager
 import java.time.LocalDate
@@ -59,8 +60,6 @@ class EditDailyReportActivity : AppCompatActivity() {
             finish()
         }
 
-        btnToBack.setOnClickListener {
-            finish()
-        }
+        btnToBack.setOnClickListener(ButtonToBackClickListener(this))
     }
 }

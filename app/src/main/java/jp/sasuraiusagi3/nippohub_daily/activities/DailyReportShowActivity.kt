@@ -7,6 +7,7 @@ import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.Button
 import jp.sasuraiusagi3.nippohub_daily.R
+import jp.sasuraiusagi3.nippohub_daily.listeners.ButtonToBackClickListener
 import jp.sasuraiusagi3.nippohub_daily.models.DailyReport
 import jp.sasuraiusagi3.nippohub_daily.utils.AccountManager
 
@@ -46,9 +47,7 @@ class DailyReportShowActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        btnToBack.setOnClickListener {
-            finish()
-        }
+        btnToBack.setOnClickListener(ButtonToBackClickListener(this))
     }
 
     private class WebClientForDailyReport(private val dailyReport: DailyReport): WebViewClient() {

@@ -1,10 +1,14 @@
 package jp.sasuraiusagi3.nippohub_daily.activities
 
+import android.app.Activity
+import android.content.Context
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.webkit.WebView
 import android.widget.Button
 import jp.sasuraiusagi3.nippohub_daily.R
+import jp.sasuraiusagi3.nippohub_daily.listeners.ButtonToBackClickListener
 
 class AgreementsActivity : AppCompatActivity() {
 
@@ -17,8 +21,6 @@ class AgreementsActivity : AppCompatActivity() {
 
         webview.loadUrl("https://nippohub.com/agreements_content.html")
 
-        btnToBack.setOnClickListener {
-            finish()
-        }
+        btnToBack.setOnClickListener(ButtonToBackClickListener(this))
     }
 }

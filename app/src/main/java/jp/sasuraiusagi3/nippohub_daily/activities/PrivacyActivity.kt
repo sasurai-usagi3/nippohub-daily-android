@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.webkit.WebView
 import android.widget.Button
 import jp.sasuraiusagi3.nippohub_daily.R
+import jp.sasuraiusagi3.nippohub_daily.listeners.ButtonToBackClickListener
 
 class PrivacyActivity : AppCompatActivity() {
 
@@ -17,8 +18,6 @@ class PrivacyActivity : AppCompatActivity() {
 
         webview.loadUrl("https://nippohub.com/privacy_content.html")
 
-        btnToBack.setOnClickListener {
-            finish()
-        }
+        btnToBack.setOnClickListener(ButtonToBackClickListener(this))
     }
 }
