@@ -11,7 +11,7 @@ import android.widget.Button
 import jp.sasuraiusagi3.nippohub_daily.R
 import jp.sasuraiusagi3.nippohub_daily.listeners.ButtonToBackClickListener
 import jp.sasuraiusagi3.nippohub_daily.models.DailyReport
-import jp.sasuraiusagi3.nippohub_daily.utils.AccountManager
+import jp.sasuraiusagi3.nippohub_daily.repositories.UserRepository
 
 class DailyReportShowActivity : AppCompatActivity() {
     companion object {
@@ -26,7 +26,7 @@ class DailyReportShowActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
 
-        if (!AccountManager.didSignIn()) {
+        if (!UserRepository.didSignIn()) {
             val intent = SignInActivity.build(this)
 
             startActivity(intent)

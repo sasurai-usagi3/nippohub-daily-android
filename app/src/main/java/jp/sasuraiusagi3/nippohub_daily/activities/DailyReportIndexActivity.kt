@@ -12,7 +12,7 @@ import jp.sasuraiusagi3.nippohub_daily.R
 import jp.sasuraiusagi3.nippohub_daily.adapters.DailyReportListAdapter
 import jp.sasuraiusagi3.nippohub_daily.models.DailyReport
 import jp.sasuraiusagi3.nippohub_daily.repositories.DailyReportRepository
-import jp.sasuraiusagi3.nippohub_daily.utils.AccountManager
+import jp.sasuraiusagi3.nippohub_daily.repositories.UserRepository
 
 class DailyReportIndexActivity : AppCompatActivity() {
 
@@ -23,7 +23,7 @@ class DailyReportIndexActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
 
-        if (!AccountManager.didSignIn()) {
+        if (!UserRepository.didSignIn()) {
             val intent = SignInActivity.build(this)
 
             startActivity(intent)
@@ -34,7 +34,7 @@ class DailyReportIndexActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_daily_report_index)
 
-        val currentUser = AccountManager.currentUser ?: return
+        val currentUser = UserRepository.currentUser ?: return
         val adapter = DailyReportListAdapter(this)
         findViewById<Button>(R.id.dailyReportIndexButtonToNew).also {
             it.setOnClickListener(ButtonToNewClickListener(this))

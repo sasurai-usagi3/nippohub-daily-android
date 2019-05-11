@@ -1,4 +1,4 @@
-package jp.sasuraiusagi3.nippohub_daily.utils
+package jp.sasuraiusagi3.nippohub_daily.repositories
 
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.AuthResult
@@ -8,7 +8,7 @@ import com.google.firebase.auth.FirebaseAuth
  * Created by sasurai-usagi3 on 2019/04/24.
  */
 
-object AccountManager {
+object UserRepository {
     private val auth = FirebaseAuth.getInstance()
     val currentUser
         get() = auth.currentUser
@@ -25,5 +25,5 @@ object AccountManager {
         auth.signOut()
     }
 
-    fun didSignIn() = this.currentUser != null
+    fun didSignIn() = currentUser != null
 }

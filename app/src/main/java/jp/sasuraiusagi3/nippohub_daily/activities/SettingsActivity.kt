@@ -10,7 +10,7 @@ import android.widget.Button
 import android.widget.ListView
 import jp.sasuraiusagi3.nippohub_daily.R
 import jp.sasuraiusagi3.nippohub_daily.listeners.ButtonToBackClickListener
-import jp.sasuraiusagi3.nippohub_daily.utils.AccountManager
+import jp.sasuraiusagi3.nippohub_daily.repositories.UserRepository
 
 class SettingsActivity : AppCompatActivity() {
     companion object {
@@ -43,7 +43,7 @@ class SettingsActivity : AppCompatActivity() {
             }
 
             if (position == POSITION_SIGNIN) {
-                AccountManager.signOut()
+                UserRepository.signOut()
             }
 
             this.context.startActivity(intent)

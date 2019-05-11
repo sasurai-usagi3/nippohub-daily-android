@@ -9,7 +9,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import jp.sasuraiusagi3.nippohub_daily.R
-import jp.sasuraiusagi3.nippohub_daily.utils.AccountManager
+import jp.sasuraiusagi3.nippohub_daily.repositories.UserRepository
 
 class SignUpActivity : AppCompatActivity() {
     companion object {
@@ -19,7 +19,7 @@ class SignUpActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
 
-        if (AccountManager.didSignIn()) {
+        if (UserRepository.didSignIn()) {
             val intent = DailyReportIndexActivity.build(this)
 
             startActivity(intent)
@@ -52,7 +52,7 @@ class SignUpActivity : AppCompatActivity() {
                                             private val formPasswordConfirmation: EditText) : View.OnClickListener {
         override fun onClick(v: View?) {
             if (formPassword.text.toString() == formPasswordConfirmation.text.toString()) {
-                AccountManager.signUp(
+                UserRepository.signUp(
                         formEmail.text.toString(),
                         formPassword.text.toString(),
                         {

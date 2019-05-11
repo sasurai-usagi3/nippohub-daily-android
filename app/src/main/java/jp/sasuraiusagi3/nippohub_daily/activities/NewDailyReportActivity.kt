@@ -13,7 +13,7 @@ import com.google.firebase.auth.FirebaseUser
 import jp.sasuraiusagi3.nippohub_daily.R
 import jp.sasuraiusagi3.nippohub_daily.listeners.ButtonToBackClickListener
 import jp.sasuraiusagi3.nippohub_daily.repositories.DailyReportRepository
-import jp.sasuraiusagi3.nippohub_daily.utils.AccountManager
+import jp.sasuraiusagi3.nippohub_daily.repositories.UserRepository
 import java.time.LocalDate
 
 class NewDailyReportActivity : AppCompatActivity() {
@@ -24,7 +24,7 @@ class NewDailyReportActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
 
-        if (!AccountManager.didSignIn()) {
+        if (!UserRepository.didSignIn()) {
             val intent = SignInActivity.build(this)
 
             startActivity(intent)
@@ -35,7 +35,7 @@ class NewDailyReportActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_new_daily_report)
 
-        val currentUser = AccountManager.currentUser ?: return
+        val currentUser = UserRepository.currentUser ?: return
         val formDate = findViewById<DatePicker>(R.id.newDailyReportFormDate)
         val formTitle = findViewById<EditText>(R.id.newDailyReportFormTitle)
         val formContent = findViewById<EditText>(R.id.newDailyReportFormContent)
