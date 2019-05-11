@@ -16,7 +16,6 @@ private typealias FetchDailyReportsCallBackFun = (List<DailyReport>) -> Unit
 
 object DailyReportRepository {
     private val instance = FirebaseDatabase.getInstance()
-    // TODO: コールバックをラムダに直したい
     /**
      * 指定したユーザの日報を最大$limitつ取得する
      *
