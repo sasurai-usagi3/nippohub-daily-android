@@ -1,5 +1,7 @@
 package jp.sasuraiusagi3.nippohub_daily.activities
 
+import android.content.Context
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.webkit.WebView
@@ -8,6 +10,9 @@ import jp.sasuraiusagi3.nippohub_daily.R
 import jp.sasuraiusagi3.nippohub_daily.listeners.ButtonToBackClickListener
 
 class PrivacyActivity : AppCompatActivity() {
+    companion object {
+        fun build(context: Context) = Intent(context, PrivacyActivity::class.java)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

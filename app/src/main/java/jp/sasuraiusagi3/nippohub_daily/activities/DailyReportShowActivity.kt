@@ -15,14 +15,19 @@ import jp.sasuraiusagi3.nippohub_daily.utils.AccountManager
 
 class DailyReportShowActivity : AppCompatActivity() {
     companion object {
-        const val DAILY_REPORT = "dailyReport"
+        private const val DAILY_REPORT = "dailyReport"
+
+        fun build(context: Context, dailyReport: DailyReport) =
+                Intent(context, DailyReportShowActivity::class.java).apply {
+                    this.putExtra(DailyReportShowActivity.DAILY_REPORT, dailyReport)
+                }
     }
 
     override fun onStart() {
         super.onStart()
 
         if (!AccountManager.didSignIn()) {
-            val intent = Intent(this, SignInActivity::class.java)
+            val intent = SignInActivity.build(this)
 
             startActivity(intent)
         }

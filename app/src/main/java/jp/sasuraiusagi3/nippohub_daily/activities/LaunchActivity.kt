@@ -12,12 +12,11 @@ class LaunchActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_launch)
 
-        val activity = if (AccountManager.currentUser != null) {
-            DailyReportIndexActivity::class.java
+        val intent = if (AccountManager.currentUser != null) {
+            DailyReportIndexActivity.build(this)
         } else {
-            SignInActivity::class.java
+            SignInActivity.build(this)
         }
-        val intent = Intent(this, activity)
 
         startActivity(intent)
 
