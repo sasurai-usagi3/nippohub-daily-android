@@ -67,7 +67,7 @@ class EditDailyReportActivity : AppCompatActivity() {
                                               private val dailyReport: DailyReport,
                                               private val formDate: DatePicker,
                                               private val formTitle: EditText,
-                                              private val formContent: EditText): View.OnClickListener {
+                                              private val formContent: EditText) : View.OnClickListener {
 
         override fun onClick(v: View?) {
             val date = LocalDate.of(formDate.year, formDate.month + 1, formDate.dayOfMonth)

@@ -53,7 +53,7 @@ class DailyReportIndexActivity : AppCompatActivity() {
         }
     }
 
-    private class DailyReportListClickListener(private val context: Context): AdapterView.OnItemClickListener {
+    private class DailyReportListClickListener(private val context: Context) : AdapterView.OnItemClickListener {
         override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
             val dailyReport = parent?.adapter?.getItem(position) as DailyReport
             val intent = DailyReportShowActivity.build(context, dailyReport)
@@ -62,7 +62,7 @@ class DailyReportIndexActivity : AppCompatActivity() {
         }
     }
 
-    private class ButtonToSettingsClickListener(private val context: Context): View.OnClickListener {
+    private class ButtonToSettingsClickListener(private val context: Context) : View.OnClickListener {
         override fun onClick(v: View?) {
             val intent = SettingsActivity.build(context)
 
@@ -70,7 +70,7 @@ class DailyReportIndexActivity : AppCompatActivity() {
         }
     }
 
-    private class ButtonToNewClickListener(private val context: Context): View.OnClickListener {
+    private class ButtonToNewClickListener(private val context: Context) : View.OnClickListener {
         override fun onClick(v: View?) {
             val intent = NewDailyReportActivity.build(context)
 

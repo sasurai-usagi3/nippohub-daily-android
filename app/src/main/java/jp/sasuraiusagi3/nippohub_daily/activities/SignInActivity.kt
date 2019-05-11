@@ -46,7 +46,7 @@ class SignInActivity : AppCompatActivity() {
 
     private class ButtonSubmitClickListener(private val activity: Activity,
                                             private val formEmail: EditText,
-                                            private val formPassword: EditText): View.OnClickListener {
+                                            private val formPassword: EditText) : View.OnClickListener {
         override fun onClick(v: View?) {
             AccountManager.signIn(
                     formEmail.text.toString(),
@@ -66,7 +66,7 @@ class SignInActivity : AppCompatActivity() {
         }
     }
 
-    private class ButtonToSignUpClickListener(private val activity: Activity): View.OnClickListener {
+    private class ButtonToSignUpClickListener(private val activity: Activity) : View.OnClickListener {
         override fun onClick(v: View?) {
             val intent = SignUpActivity.build(activity)
 

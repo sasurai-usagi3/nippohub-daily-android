@@ -49,7 +49,7 @@ class SignUpActivity : AppCompatActivity() {
     private class ButtonSubmitClickListener(private val activity: Activity,
                                             private val formEmail: EditText,
                                             private val formPassword: EditText,
-                                            private val formPasswordConfirmation: EditText): View.OnClickListener {
+                                            private val formPasswordConfirmation: EditText) : View.OnClickListener {
         override fun onClick(v: View?) {
             if (formPassword.text.toString() == formPasswordConfirmation.text.toString()) {
                 AccountManager.signUp(
@@ -71,7 +71,7 @@ class SignUpActivity : AppCompatActivity() {
         }
     }
 
-    private class ButtonToAgreementsClickListener(private val context: Context): View.OnClickListener {
+    private class ButtonToAgreementsClickListener(private val context: Context) : View.OnClickListener {
         override fun onClick(v: View?) {
             val intent = AgreementsActivity.build(context)
 
@@ -79,7 +79,7 @@ class SignUpActivity : AppCompatActivity() {
         }
     }
 
-    private class ButtonToPrivacyClickListener(private val context: Context): View.OnClickListener {
+    private class ButtonToPrivacyClickListener(private val context: Context) : View.OnClickListener {
         override fun onClick(v: View?) {
             val intent = PrivacyActivity.build(context)
 

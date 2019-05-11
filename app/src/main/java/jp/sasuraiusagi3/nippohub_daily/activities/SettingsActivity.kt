@@ -29,13 +29,13 @@ class SettingsActivity : AppCompatActivity() {
         }
     }
 
-    private class SettingsListItemClickListener(private val context: Context): AdapterView.OnItemClickListener {
+    private class SettingsListItemClickListener(private val context: Context) : AdapterView.OnItemClickListener {
         private val POSITION_AGREEMENTS = 0
         private val POSITION_PRIVACY = 1
         private val POSITION_SIGNIN = 2
 
         override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-            val intent = when(position) {
+            val intent = when (position) {
                 POSITION_AGREEMENTS -> AgreementsActivity.build(context)
                 POSITION_PRIVACY -> PrivacyActivity.build(context)
                 POSITION_SIGNIN -> SignInActivity.build(context)

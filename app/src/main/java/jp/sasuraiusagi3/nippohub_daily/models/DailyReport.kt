@@ -12,4 +12,4 @@ data class DailyReport(
         val date: LocalDate,
         val title: String,
         val content: String
-): Serializable
+) : Serializable

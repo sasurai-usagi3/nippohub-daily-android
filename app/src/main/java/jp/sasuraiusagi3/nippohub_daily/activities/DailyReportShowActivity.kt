@@ -51,7 +51,7 @@ class DailyReportShowActivity : AppCompatActivity() {
         }
     }
 
-    private class WebClientForDailyReport(private val dailyReport: DailyReport): WebViewClient() {
+    private class WebClientForDailyReport(private val dailyReport: DailyReport) : WebViewClient() {
         override fun onPageFinished(view: WebView?, url: String?) {
             super.onPageFinished(view, url)
 
@@ -67,7 +67,7 @@ class DailyReportShowActivity : AppCompatActivity() {
         }
     }
 
-    private class ButtonToEditClickListener(private val context: Context, private val dailyReport: DailyReport): View.OnClickListener {
+    private class ButtonToEditClickListener(private val context: Context, private val dailyReport: DailyReport) : View.OnClickListener {
         override fun onClick(v: View?) {
             val intent = Intent(this.context, EditDailyReportActivity::class.java)
 

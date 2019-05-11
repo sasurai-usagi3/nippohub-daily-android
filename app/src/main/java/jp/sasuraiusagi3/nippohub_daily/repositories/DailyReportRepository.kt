@@ -56,7 +56,7 @@ object DailyReportRepository {
                 )
     }
 
-    private class DailyReportIndexFetcher(private val callBackFun: FetchDailyReportsCallBackFun): ValueEventListener {
+    private class DailyReportIndexFetcher(private val callBackFun: FetchDailyReportsCallBackFun) : ValueEventListener {
         override fun onDataChange(p0: DataSnapshot) {
             val dailyReports = p0.children.map {
                 DailyReport(

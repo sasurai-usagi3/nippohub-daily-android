@@ -20,6 +20,7 @@ class NewDailyReportActivity : AppCompatActivity() {
     companion object {
         fun build(context: Context) = Intent(context, NewDailyReportActivity::class.java)
     }
+
     override fun onStart() {
         super.onStart()
 
@@ -52,7 +53,7 @@ class NewDailyReportActivity : AppCompatActivity() {
                                               private val currentUser: FirebaseUser,
                                               private val formDate: DatePicker,
                                               private val formTitle: EditText,
-                                              private val formContent: EditText): View.OnClickListener {
+                                              private val formContent: EditText) : View.OnClickListener {
 
         override fun onClick(v: View?) {
             val date = LocalDate.of(formDate.year, formDate.month + 1, formDate.dayOfMonth)
