@@ -8,15 +8,11 @@ import android.view.View
 import android.widget.AdapterView
 import android.widget.Button
 import android.widget.ListView
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
 import jp.sasuraiusagi3.nippohub_daily.R
 import jp.sasuraiusagi3.nippohub_daily.adapters.DailyReportListAdapter
 import jp.sasuraiusagi3.nippohub_daily.models.DailyReport
+import jp.sasuraiusagi3.nippohub_daily.repositories.DailyReportRepository
 import jp.sasuraiusagi3.nippohub_daily.utils.AccountManager
-import java.time.LocalDate
 
 class DailyReportIndexActivity : AppCompatActivity() {
 
@@ -46,26 +42,9 @@ class DailyReportIndexActivity : AppCompatActivity() {
             it.adapter = adapter
             it.onItemClickListener = DailyReportListClickListener(this)
         }
-        FirebaseDatabase.getInstance().getReference("/users/${currentUser.uid}/daily_reports").apply {
-            this.addValueEventListener(DailyReportIndexFetcher(adapter))
-        }
-    }
 
-    private class DailyReportIndexFetcher(private val adapter: DailyReportListAdapter): ValueEventListener {
-        override fun onCancelled(r: DatabaseError) {
-        }
-
-        override fun onDataChange(r: DataSnapshot) {
-            val dailyReports = r.children.map {
-                DailyReport(
-                        it.key!!,
-                        LocalDate.parse(it.child("date").value as String),
-                        it.child("title").value as String,
-                        it.child("content").value as String
-                )
-            }
-
-            adapter.dailyReports = dailyReports
+        DailyReportRepository.fetch(currentUser) {
+            adapter.dailyReports = it
             adapter.notifyDataSetChanged()
         }
     }

@@ -8,11 +8,11 @@ import android.view.View
 import android.widget.Button
 import android.widget.DatePicker
 import android.widget.EditText
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.auth.FirebaseUser
 import jp.sasuraiusagi3.nippohub_daily.R
 import jp.sasuraiusagi3.nippohub_daily.listeners.ButtonToBackClickListener
 import jp.sasuraiusagi3.nippohub_daily.models.DailyReport
+import jp.sasuraiusagi3.nippohub_daily.repositories.DailyReportRepository
 import jp.sasuraiusagi3.nippohub_daily.utils.AccountManager
 import java.time.LocalDate
 
@@ -37,7 +37,6 @@ class EditDailyReportActivity : AppCompatActivity() {
 
         val currentUser = AccountManager.currentUser ?: return
         val dailyReport = this.intent.getSerializableExtra(DAILY_REPORT) as DailyReport
-        val database = FirebaseDatabase.getInstance().getReference("/users/${currentUser.uid}/daily_reports/${dailyReport.id}")
         val formDate = findViewById<DatePicker>(R.id.editDailyReportFormDate).apply {
             this.updateDate(dailyReport.date.year, dailyReport.date.monthValue - 1, dailyReport.date.dayOfMonth)
         }
@@ -49,7 +48,7 @@ class EditDailyReportActivity : AppCompatActivity() {
         }
         findViewById<Button>(R.id.editDailyReportButtonSubmit).also {
             it.setOnClickListener(
-                    ButtonToSubmitClickListener(this, database, formDate, formTitle, formContent)
+                    ButtonToSubmitClickListener(this, currentUser, dailyReport, formDate, formTitle, formContent)
             )
         }
         findViewById<Button>(R.id.editDailyReportButtonToBack).also {
@@ -58,22 +57,21 @@ class EditDailyReportActivity : AppCompatActivity() {
     }
 
     private class ButtonToSubmitClickListener(private val activity: Activity,
-                                              private val database: DatabaseReference,
+                                              private val currentUser: FirebaseUser,
+                                              private val dailyReport: DailyReport,
                                               private val formDate: DatePicker,
                                               private val formTitle: EditText,
                                               private val formContent: EditText): View.OnClickListener {
 
         override fun onClick(v: View?) {
             val date = LocalDate.of(formDate.year, formDate.month + 1, formDate.dayOfMonth)
-
-            database.setValue(
-                    mapOf(
-                            "date" to date.toString(),
-                            "title" to formTitle.text.toString(),
-                            "content" to formContent.text.toString(),
-                            "createdAt" to System.currentTimeMillis()
-                    )
+            val newDailyReport = dailyReport.copy(
+                    date = date,
+                    title = formTitle.text.toString(),
+                    content = formContent.text.toString()
             )
+
+            DailyReportRepository.update(currentUser, newDailyReport)
 
             this.activity.finish()
         }
