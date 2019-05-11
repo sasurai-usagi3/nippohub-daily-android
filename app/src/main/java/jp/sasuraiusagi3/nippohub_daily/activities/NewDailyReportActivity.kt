@@ -35,12 +35,12 @@ class NewDailyReportActivity : AppCompatActivity() {
         val formDate = findViewById<DatePicker>(R.id.newDailyReportFormDate)
         val formTitle = findViewById<EditText>(R.id.newDailyReportFormTitle)
         val formContent = findViewById<EditText>(R.id.newDailyReportFormContent)
-        val btnToSubmit = findViewById<Button>(R.id.newDailyReportButtonSubmit).also {
+        findViewById<Button>(R.id.newDailyReportButtonSubmit).also {
             it.setOnClickListener(
                     ButtonToSubmitClickListener(this, database, formDate, formTitle, formContent)
             )
         }
-        val btnToBack = findViewById<Button>(R.id.newDailyReportButtonToBack).also {
+        findViewById<Button>(R.id.newDailyReportButtonToBack).also {
             it.setOnClickListener(ButtonToBackClickListener(this))
         }
     }
