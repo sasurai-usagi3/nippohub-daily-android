@@ -6,8 +6,10 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
+import android.widget.Button
 import android.widget.ListView
 import jp.sasuraiusagi3.nippohub_daily.R
+import jp.sasuraiusagi3.nippohub_daily.listeners.ButtonToBackClickListener
 import jp.sasuraiusagi3.nippohub_daily.utils.AccountManager
 
 class SettingsActivity : AppCompatActivity() {
@@ -18,6 +20,9 @@ class SettingsActivity : AppCompatActivity() {
 
         findViewById<ListView>(R.id.settingsListView).also {
             it.onItemClickListener = SettingsListItemClickListener(this)
+        }
+        findViewById<Button>(R.id.settingsButtonToBack).also {
+            it.setOnClickListener(ButtonToBackClickListener(this))
         }
     }
 
