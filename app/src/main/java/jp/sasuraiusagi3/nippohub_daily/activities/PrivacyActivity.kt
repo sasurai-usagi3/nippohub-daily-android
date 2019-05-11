@@ -13,11 +13,11 @@ class PrivacyActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_privacy)
 
-        val webview = findViewById<WebView>(R.id.privacyWebview)
-        val btnToBack = findViewById<Button>(R.id.privacyButtonToBack)
-
-        webview.loadUrl("https://nippohub.com/privacy_content.html")
-
-        btnToBack.setOnClickListener(ButtonToBackClickListener(this))
+        findViewById<WebView>(R.id.privacyWebview).apply {
+            this.loadUrl("https://nippohub.com/privacy_content.html")
+        }
+        findViewById<Button>(R.id.privacyButtonToBack).also {
+            it.setOnClickListener(ButtonToBackClickListener(this))
+        }
     }
 }
