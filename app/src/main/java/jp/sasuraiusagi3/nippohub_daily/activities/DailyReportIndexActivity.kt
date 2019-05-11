@@ -16,6 +16,10 @@ import jp.sasuraiusagi3.nippohub_daily.utils.AccountManager
 
 class DailyReportIndexActivity : AppCompatActivity() {
 
+    companion object {
+        fun build(context: Context) = Intent(context, DailyReportIndexActivity::class.java)
+    }
+
     override fun onStart() {
         super.onStart()
 

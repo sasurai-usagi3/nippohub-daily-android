@@ -1,6 +1,7 @@
 package jp.sasuraiusagi3.nippohub_daily.activities
 
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
@@ -11,6 +12,10 @@ import jp.sasuraiusagi3.nippohub_daily.R
 import jp.sasuraiusagi3.nippohub_daily.utils.AccountManager
 
 class SignInActivity : AppCompatActivity() {
+    companion object {
+        fun build(context: Context) = Intent(context, SignInActivity::class.java)
+    }
+
     override fun onStart() {
         super.onStart()
 

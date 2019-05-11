@@ -12,6 +12,10 @@ import jp.sasuraiusagi3.nippohub_daily.R
 import jp.sasuraiusagi3.nippohub_daily.utils.AccountManager
 
 class SignUpActivity : AppCompatActivity() {
+    companion object {
+        fun build(context: Context) = Intent(context, SignUpActivity::class.java)
+    }
+
     override fun onStart() {
         super.onStart()
 

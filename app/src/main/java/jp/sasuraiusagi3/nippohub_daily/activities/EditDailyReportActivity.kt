@@ -1,6 +1,7 @@
 package jp.sasuraiusagi3.nippohub_daily.activities
 
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
@@ -19,6 +20,11 @@ import java.time.LocalDate
 class EditDailyReportActivity : AppCompatActivity() {
     companion object {
         const val DAILY_REPORT = "dailyReport"
+
+        fun build(context: Context, dailyReport: DailyReport) =
+                Intent(context, EditDailyReportActivity::class.java).apply {
+                    this.putExtra(DAILY_REPORT, dailyReport)
+                }
     }
 
     override fun onStart() {

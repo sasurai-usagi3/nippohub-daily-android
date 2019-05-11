@@ -1,6 +1,7 @@
 package jp.sasuraiusagi3.nippohub_daily.activities
 
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
@@ -16,6 +17,9 @@ import jp.sasuraiusagi3.nippohub_daily.utils.AccountManager
 import java.time.LocalDate
 
 class NewDailyReportActivity : AppCompatActivity() {
+    companion object {
+        fun build(context: Context) = Intent(context, NewDailyReportActivity::class.java)
+    }
     override fun onStart() {
         super.onStart()
 

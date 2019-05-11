@@ -13,6 +13,9 @@ import jp.sasuraiusagi3.nippohub_daily.listeners.ButtonToBackClickListener
 import jp.sasuraiusagi3.nippohub_daily.utils.AccountManager
 
 class SettingsActivity : AppCompatActivity() {
+    companion object {
+        fun build(context: Context) = Intent(context, SettingsActivity::class.java)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
