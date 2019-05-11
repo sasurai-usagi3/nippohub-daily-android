@@ -16,11 +16,10 @@ private typealias FetchDailyReportsCallBackFun = (List<DailyReport>) -> Unit
 
 object DailyReportRepository {
     private val instance = FirebaseDatabase.getInstance()
-    // TODO: コールバックをラムダに直したい
     /**
      * 指定したユーザの日報を最大$limitつ取得する
      *
-     * @param userId ユーザ
+     * @param user ユーザ
      * @param limit 最大値
      */
     fun fetch(user: FirebaseUser, limit: Int = 30, callBackFun: FetchDailyReportsCallBackFun) {
@@ -31,6 +30,14 @@ object DailyReportRepository {
                 .addValueEventListener(DailyReportIndexFetcher(callBackFun))
     }
 
+    /**
+     * 指定したユーザの日報を作成する
+     *
+     * @param user ユーザ
+     * @param date 日付
+     * @param title タイトル
+     * @param content 内容
+     */
     fun create(user: FirebaseUser, date: LocalDate, title: String, content: String) {
         val ref = this.instance.getReference("/users/${user.uid}/daily_reports").push()
 
@@ -44,6 +51,12 @@ object DailyReportRepository {
         )
     }
 
+    /**
+     * 指定したユーザの渡された日報を更新する
+     *
+     * @param user ユーザ
+     * @param dailyReport 日報
+     */
     fun update(user: FirebaseUser, dailyReport: DailyReport) {
         this.instance
                 .getReference("/users/${user.uid}/daily_reports/${dailyReport.id}")
@@ -56,7 +69,7 @@ object DailyReportRepository {
                 )
     }
 
-    private class DailyReportIndexFetcher(private val callBackFun: FetchDailyReportsCallBackFun): ValueEventListener {
+    private class DailyReportIndexFetcher(private val callBackFun: FetchDailyReportsCallBackFun) : ValueEventListener {
         override fun onDataChange(p0: DataSnapshot) {
             val dailyReports = p0.children.map {
                 DailyReport(

@@ -9,7 +9,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import jp.sasuraiusagi3.nippohub_daily.R
-import jp.sasuraiusagi3.nippohub_daily.utils.AccountManager
+import jp.sasuraiusagi3.nippohub_daily.repositories.UserRepository
 
 class SignUpActivity : AppCompatActivity() {
     companion object {
@@ -19,7 +19,7 @@ class SignUpActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
 
-        if (AccountManager.didSignIn()) {
+        if (UserRepository.didSignIn()) {
             val intent = DailyReportIndexActivity.build(this)
 
             startActivity(intent)
@@ -49,10 +49,10 @@ class SignUpActivity : AppCompatActivity() {
     private class ButtonSubmitClickListener(private val activity: Activity,
                                             private val formEmail: EditText,
                                             private val formPassword: EditText,
-                                            private val formPasswordConfirmation: EditText): View.OnClickListener {
+                                            private val formPasswordConfirmation: EditText) : View.OnClickListener {
         override fun onClick(v: View?) {
             if (formPassword.text.toString() == formPasswordConfirmation.text.toString()) {
-                AccountManager.signUp(
+                UserRepository.signUp(
                         formEmail.text.toString(),
                         formPassword.text.toString(),
                         {
@@ -71,7 +71,7 @@ class SignUpActivity : AppCompatActivity() {
         }
     }
 
-    private class ButtonToAgreementsClickListener(private val context: Context): View.OnClickListener {
+    private class ButtonToAgreementsClickListener(private val context: Context) : View.OnClickListener {
         override fun onClick(v: View?) {
             val intent = AgreementsActivity.build(context)
 
@@ -79,7 +79,7 @@ class SignUpActivity : AppCompatActivity() {
         }
     }
 
-    private class ButtonToPrivacyClickListener(private val context: Context): View.OnClickListener {
+    private class ButtonToPrivacyClickListener(private val context: Context) : View.OnClickListener {
         override fun onClick(v: View?) {
             val intent = PrivacyActivity.build(context)
 

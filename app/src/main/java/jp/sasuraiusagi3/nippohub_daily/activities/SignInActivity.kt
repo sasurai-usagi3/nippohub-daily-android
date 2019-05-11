@@ -9,7 +9,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import jp.sasuraiusagi3.nippohub_daily.R
-import jp.sasuraiusagi3.nippohub_daily.utils.AccountManager
+import jp.sasuraiusagi3.nippohub_daily.repositories.UserRepository
 
 class SignInActivity : AppCompatActivity() {
     companion object {
@@ -19,7 +19,7 @@ class SignInActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
 
-        if (AccountManager.didSignIn()) {
+        if (UserRepository.didSignIn()) {
             val intent = DailyReportIndexActivity.build(this)
 
             startActivity(intent)
@@ -46,9 +46,9 @@ class SignInActivity : AppCompatActivity() {
 
     private class ButtonSubmitClickListener(private val activity: Activity,
                                             private val formEmail: EditText,
-                                            private val formPassword: EditText): View.OnClickListener {
+                                            private val formPassword: EditText) : View.OnClickListener {
         override fun onClick(v: View?) {
-            AccountManager.signIn(
+            UserRepository.signIn(
                     formEmail.text.toString(),
                     formPassword.text.toString(),
                     {
@@ -66,7 +66,7 @@ class SignInActivity : AppCompatActivity() {
         }
     }
 
-    private class ButtonToSignUpClickListener(private val activity: Activity): View.OnClickListener {
+    private class ButtonToSignUpClickListener(private val activity: Activity) : View.OnClickListener {
         override fun onClick(v: View?) {
             val intent = SignUpActivity.build(activity)
 

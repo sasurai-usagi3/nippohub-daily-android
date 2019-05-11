@@ -14,7 +14,7 @@ import jp.sasuraiusagi3.nippohub_daily.R
 import jp.sasuraiusagi3.nippohub_daily.listeners.ButtonToBackClickListener
 import jp.sasuraiusagi3.nippohub_daily.models.DailyReport
 import jp.sasuraiusagi3.nippohub_daily.repositories.DailyReportRepository
-import jp.sasuraiusagi3.nippohub_daily.utils.AccountManager
+import jp.sasuraiusagi3.nippohub_daily.repositories.UserRepository
 import java.time.LocalDate
 
 class EditDailyReportActivity : AppCompatActivity() {
@@ -30,7 +30,7 @@ class EditDailyReportActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
 
-        if (!AccountManager.didSignIn()) {
+        if (!UserRepository.didSignIn()) {
             val intent = Intent(this, SignInActivity::class.java)
 
             startActivity(intent)
@@ -41,7 +41,7 @@ class EditDailyReportActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_daily_report)
 
-        val currentUser = AccountManager.currentUser ?: return
+        val currentUser = UserRepository.currentUser ?: return
         val dailyReport = this.intent.getSerializableExtra(DAILY_REPORT) as DailyReport
         val formDate = findViewById<DatePicker>(R.id.editDailyReportFormDate).apply {
             this.updateDate(dailyReport.date.year, dailyReport.date.monthValue - 1, dailyReport.date.dayOfMonth)
@@ -67,7 +67,7 @@ class EditDailyReportActivity : AppCompatActivity() {
                                               private val dailyReport: DailyReport,
                                               private val formDate: DatePicker,
                                               private val formTitle: EditText,
-                                              private val formContent: EditText): View.OnClickListener {
+                                              private val formContent: EditText) : View.OnClickListener {
 
         override fun onClick(v: View?) {
             val date = LocalDate.of(formDate.year, formDate.month + 1, formDate.dayOfMonth)

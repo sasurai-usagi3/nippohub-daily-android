@@ -13,7 +13,7 @@ import jp.sasuraiusagi3.nippohub_daily.models.DailyReport
  * Created by sasurai-usagi3 on 2019/04/30.
  */
 
-class DailyReportListAdapter: BaseAdapter {
+class DailyReportListAdapter : BaseAdapter {
     private val context: Context
     private val inflater: LayoutInflater
     var dailyReports: List<DailyReport> = emptyList()

@@ -10,73 +10,81 @@
         android:id="@+id/signUpLabelEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
         android:text="email"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="40dp" />
+        app:layout_constraintTop_toTopOf="parent" />
+
     <EditText
         android:id="@+id/signUpFormEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/signUpLabelEmail"
+        android:layout_marginTop="10dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="10dp" />
+        app:layout_constraintTop_toBottomOf="@id/signUpLabelEmail" />
+
     <TextView
         android:id="@+id/signUpLabelPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:text="password"
-        app:layout_constraintTop_toBottomOf="@id/signUpFormEmail"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="20dp" />
+        app:layout_constraintTop_toBottomOf="@id/signUpFormEmail" />
+
     <EditText
         android:id="@+id/signUpFormPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/signUpLabelPassword"
+        android:layout_marginTop="10dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="10dp" />
+        app:layout_constraintTop_toBottomOf="@id/signUpLabelPassword" />
+
     <TextView
         android:id="@+id/signUpLabelPasswordConfirmation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:text="password confirmation"
-        app:layout_constraintTop_toBottomOf="@id/signUpFormPassword"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="20dp" />
+        app:layout_constraintTop_toBottomOf="@id/signUpFormPassword" />
+
     <EditText
         android:id="@+id/signUpFormPasswordConfirmation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/signUpLabelPasswordConfirmation"
+        android:layout_marginTop="10dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="10dp" />
+        app:layout_constraintTop_toBottomOf="@id/signUpLabelPasswordConfirmation" />
+
     <Button
         android:id="@+id/signUpButtonSubmit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
         android:text="サインアップ"
-        app:layout_constraintTop_toBottomOf="@id/signUpFormPasswordConfirmation"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="40dp" />
+        app:layout_constraintTop_toBottomOf="@id/signUpFormPasswordConfirmation" />
+
     <Button
         android:id="@+id/signUpButtonToPrivacy"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/signUpButtonSubmit"
-        android:text="プライバシーポリシー" />
+        android:text="プライバシーポリシー"
+        app:layout_constraintTop_toBottomOf="@id/signUpButtonSubmit" />
+
     <Button
         android:id="@+id/signUpButtonToAgreements"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/signUpButtonSubmit"
+        android:text="利用規約"
         app:layout_constraintLeft_toRightOf="@id/signUpButtonToPrivacy"
-        android:text="利用規約" />
+        app:layout_constraintTop_toBottomOf="@id/signUpButtonSubmit" />
 </android.support.constraint.ConstraintLayout>

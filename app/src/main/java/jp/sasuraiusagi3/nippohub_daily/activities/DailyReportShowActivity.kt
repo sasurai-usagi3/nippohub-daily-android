@@ -11,7 +11,7 @@ import android.widget.Button
 import jp.sasuraiusagi3.nippohub_daily.R
 import jp.sasuraiusagi3.nippohub_daily.listeners.ButtonToBackClickListener
 import jp.sasuraiusagi3.nippohub_daily.models.DailyReport
-import jp.sasuraiusagi3.nippohub_daily.utils.AccountManager
+import jp.sasuraiusagi3.nippohub_daily.repositories.UserRepository
 
 class DailyReportShowActivity : AppCompatActivity() {
     companion object {
@@ -26,7 +26,7 @@ class DailyReportShowActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
 
-        if (!AccountManager.didSignIn()) {
+        if (!UserRepository.didSignIn()) {
             val intent = SignInActivity.build(this)
 
             startActivity(intent)
@@ -51,7 +51,7 @@ class DailyReportShowActivity : AppCompatActivity() {
         }
     }
 
-    private class WebClientForDailyReport(private val dailyReport: DailyReport): WebViewClient() {
+    private class WebClientForDailyReport(private val dailyReport: DailyReport) : WebViewClient() {
         override fun onPageFinished(view: WebView?, url: String?) {
             super.onPageFinished(view, url)
 
@@ -67,7 +67,7 @@ class DailyReportShowActivity : AppCompatActivity() {
         }
     }
 
-    private class ButtonToEditClickListener(private val context: Context, private val dailyReport: DailyReport): View.OnClickListener {
+    private class ButtonToEditClickListener(private val context: Context, private val dailyReport: DailyReport) : View.OnClickListener {
         override fun onClick(v: View?) {
             val intent = Intent(this.context, EditDailyReportActivity::class.java)
 

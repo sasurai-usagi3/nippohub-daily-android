@@ -5,59 +5,67 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="jp.sasuraiusagi3.nippohub_daily.activities.NewDailyReportActivity">
+
     <android.support.v7.widget.Toolbar
         android:id="@+id/newDailyReportToolBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:minHeight="?attr/actionBarSize"
-        android:background="?attr/colorPrimary">
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize">
+
         <Button
             android:id="@+id/newDailyReportButtonToBack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="戻る" />
     </android.support.v7.widget.Toolbar>
+
     <TextView
         android:id="@+id/newDailyReportLabelDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/newDailyReportToolBar"
-        android:text="date" />
+        android:text="date"
+        app:layout_constraintTop_toBottomOf="@id/newDailyReportToolBar" />
+
     <DatePicker
         android:id="@+id/newDailyReportFormDate"
-        android:datePickerMode="spinner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/newDailyReportLabelDate">
-    </DatePicker>
+        android:datePickerMode="spinner"
+        app:layout_constraintTop_toBottomOf="@+id/newDailyReportLabelDate"></DatePicker>
+
     <TextView
         android:id="@+id/newDailyReportLabelTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/newDailyReportFormDate"
-        android:text="title" />
+        android:text="title"
+        app:layout_constraintTop_toBottomOf="@+id/newDailyReportFormDate" />
+
     <EditText
         android:id="@+id/newDailyReportFormTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/newDailyReportLabelTitle" />
+
     <TextView
         android:id="@+id/newDailyReportLabelContent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/newDailyReportFormTitle"
-        android:text="content" />
+        android:text="content"
+        app:layout_constraintTop_toBottomOf="@+id/newDailyReportFormTitle" />
+
     <EditText
         android:id="@+id/newDailyReportFormContent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/newDailyReportLabelContent" />
+
     <Button
         android:id="@+id/newDailyReportButtonSubmit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/newDailyReportFormContent"
-        android:text="作成"/>
+        android:text="作成"
+        app:layout_constraintTop_toBottomOf="@+id/newDailyReportFormContent" />
 
 
 </android.support.constraint.ConstraintLayout>

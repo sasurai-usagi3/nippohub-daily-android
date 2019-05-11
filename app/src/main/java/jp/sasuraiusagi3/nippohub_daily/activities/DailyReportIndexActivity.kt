@@ -12,7 +12,7 @@ import jp.sasuraiusagi3.nippohub_daily.R
 import jp.sasuraiusagi3.nippohub_daily.adapters.DailyReportListAdapter
 import jp.sasuraiusagi3.nippohub_daily.models.DailyReport
 import jp.sasuraiusagi3.nippohub_daily.repositories.DailyReportRepository
-import jp.sasuraiusagi3.nippohub_daily.utils.AccountManager
+import jp.sasuraiusagi3.nippohub_daily.repositories.UserRepository
 
 class DailyReportIndexActivity : AppCompatActivity() {
 
@@ -23,7 +23,7 @@ class DailyReportIndexActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
 
-        if (!AccountManager.didSignIn()) {
+        if (!UserRepository.didSignIn()) {
             val intent = SignInActivity.build(this)
 
             startActivity(intent)
@@ -34,7 +34,7 @@ class DailyReportIndexActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_daily_report_index)
 
-        val currentUser = AccountManager.currentUser ?: return
+        val currentUser = UserRepository.currentUser ?: return
         val adapter = DailyReportListAdapter(this)
         findViewById<Button>(R.id.dailyReportIndexButtonToNew).also {
             it.setOnClickListener(ButtonToNewClickListener(this))
@@ -53,7 +53,7 @@ class DailyReportIndexActivity : AppCompatActivity() {
         }
     }
 
-    private class DailyReportListClickListener(private val context: Context): AdapterView.OnItemClickListener {
+    private class DailyReportListClickListener(private val context: Context) : AdapterView.OnItemClickListener {
         override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
             val dailyReport = parent?.adapter?.getItem(position) as DailyReport
             val intent = DailyReportShowActivity.build(context, dailyReport)
@@ -62,7 +62,7 @@ class DailyReportIndexActivity : AppCompatActivity() {
         }
     }
 
-    private class ButtonToSettingsClickListener(private val context: Context): View.OnClickListener {
+    private class ButtonToSettingsClickListener(private val context: Context) : View.OnClickListener {
         override fun onClick(v: View?) {
             val intent = SettingsActivity.build(context)
 
@@ -70,7 +70,7 @@ class DailyReportIndexActivity : AppCompatActivity() {
         }
     }
 
-    private class ButtonToNewClickListener(private val context: Context): View.OnClickListener {
+    private class ButtonToNewClickListener(private val context: Context) : View.OnClickListener {
         override fun onClick(v: View?) {
             val intent = NewDailyReportActivity.build(context)
 

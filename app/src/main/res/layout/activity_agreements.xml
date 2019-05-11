@@ -10,19 +10,20 @@
         android:id="@+id/agreementsToolBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:minHeight="?attr/actionBarSize"
-        android:background="?attr/colorPrimary">
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize">
+
         <Button
             android:id="@+id/agreementsButtonToBack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="閉じる" />
     </android.support.v7.widget.Toolbar>
+
     <WebView
         android:id="@+id/agreementsWebview"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintTop_toBottomOf="@id/agreementsToolBar"
-        app:layout_constraintBottom_toBottomOf="parent">
-    </WebView>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/agreementsToolBar"></WebView>
 </android.support.constraint.ConstraintLayout>
