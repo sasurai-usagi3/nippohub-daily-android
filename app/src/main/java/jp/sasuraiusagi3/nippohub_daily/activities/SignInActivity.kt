@@ -1,7 +1,6 @@
 package jp.sasuraiusagi3.nippohub_daily.activities
 
 import android.app.Activity
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
@@ -40,7 +39,7 @@ class SignInActivity : AppCompatActivity() {
     override fun onBackPressed() {
     }
 
-    private class ButtonSubmitClickListener(private val context: Context,
+    private class ButtonSubmitClickListener(private val activity: Activity,
                                             private val formEmail: EditText,
                                             private val formPassword: EditText): View.OnClickListener {
         override fun onClick(v: View?) {
@@ -48,9 +47,10 @@ class SignInActivity : AppCompatActivity() {
                     formEmail.text.toString(),
                     formPassword.text.toString(),
                     {
-                        val intent = Intent(this.context, DailyReportIndexActivity::class.java)
+                        val intent = Intent(this.activity, DailyReportIndexActivity::class.java)
 
-                        this.context.startActivity(intent)
+                        this.activity.startActivity(intent)
+                        this.activity.finish()
                     },
                     {
                         println("|------|")
