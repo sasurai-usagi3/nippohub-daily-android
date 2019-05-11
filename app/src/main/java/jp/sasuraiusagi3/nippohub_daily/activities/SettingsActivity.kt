@@ -36,9 +36,9 @@ class SettingsActivity : AppCompatActivity() {
 
         override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
             val intent = when(position) {
-                POSITION_AGREEMENTS -> Intent(this.context, AgreementsActivity::class.java)
-                POSITION_PRIVACY -> Intent(this.context, PrivacyActivity::class.java)
-                POSITION_SIGNIN -> Intent(this.context, SignInActivity::class.java)
+                POSITION_AGREEMENTS -> AgreementsActivity.build(context)
+                POSITION_PRIVACY -> PrivacyActivity.build(context)
+                POSITION_SIGNIN -> SignInActivity.build(context)
                 else -> throw RuntimeException() // TODO: 独自の例外に変える
             }
 

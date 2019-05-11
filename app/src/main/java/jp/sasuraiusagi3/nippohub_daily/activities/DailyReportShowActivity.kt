@@ -27,7 +27,7 @@ class DailyReportShowActivity : AppCompatActivity() {
         super.onStart()
 
         if (!AccountManager.didSignIn()) {
-            val intent = Intent(this, SignInActivity::class.java)
+            val intent = SignInActivity.build(this)
 
             startActivity(intent)
         }

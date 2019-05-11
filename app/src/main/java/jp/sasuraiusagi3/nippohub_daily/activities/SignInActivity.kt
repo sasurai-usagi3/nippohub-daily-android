@@ -20,7 +20,7 @@ class SignInActivity : AppCompatActivity() {
         super.onStart()
 
         if (AccountManager.didSignIn()) {
-            val intent = Intent(this, DailyReportIndexActivity::class.java)
+            val intent = DailyReportIndexActivity.build(this)
 
             startActivity(intent)
         }
@@ -52,7 +52,7 @@ class SignInActivity : AppCompatActivity() {
                     formEmail.text.toString(),
                     formPassword.text.toString(),
                     {
-                        val intent = Intent(this.activity, DailyReportIndexActivity::class.java)
+                        val intent = DailyReportIndexActivity.build(activity)
 
                         this.activity.startActivity(intent)
                         this.activity.finish()
@@ -68,7 +68,7 @@ class SignInActivity : AppCompatActivity() {
 
     private class ButtonToSignUpClickListener(private val activity: Activity): View.OnClickListener {
         override fun onClick(v: View?) {
-            val intent = Intent(this.activity, SignUpActivity::class.java)
+            val intent = SignUpActivity.build(activity)
 
             activity.startActivity(intent)
             activity.finish()

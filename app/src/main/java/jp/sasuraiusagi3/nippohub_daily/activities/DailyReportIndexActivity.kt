@@ -24,7 +24,7 @@ class DailyReportIndexActivity : AppCompatActivity() {
         super.onStart()
 
         if (!AccountManager.didSignIn()) {
-            val intent = Intent(this, SignInActivity::class.java)
+            val intent = SignInActivity.build(this)
 
             startActivity(intent)
         }
@@ -55,10 +55,8 @@ class DailyReportIndexActivity : AppCompatActivity() {
 
     private class DailyReportListClickListener(private val context: Context): AdapterView.OnItemClickListener {
         override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-            val intent = Intent(context, DailyReportShowActivity::class.java)
             val dailyReport = parent?.adapter?.getItem(position) as DailyReport
-
-            intent.putExtra(DailyReportShowActivity.DAILY_REPORT, dailyReport)
+            val intent = DailyReportShowActivity.build(context, dailyReport)
 
             context.startActivity(intent)
         }
@@ -66,7 +64,7 @@ class DailyReportIndexActivity : AppCompatActivity() {
 
     private class ButtonToSettingsClickListener(private val context: Context): View.OnClickListener {
         override fun onClick(v: View?) {
-            val intent = Intent(this.context, SettingsActivity::class.java)
+            val intent = SettingsActivity.build(context)
 
             this.context.startActivity(intent)
         }
@@ -74,7 +72,7 @@ class DailyReportIndexActivity : AppCompatActivity() {
 
     private class ButtonToNewClickListener(private val context: Context): View.OnClickListener {
         override fun onClick(v: View?) {
-            val intent = Intent(this.context, NewDailyReportActivity::class.java)
+            val intent = NewDailyReportActivity.build(context)
 
             this.context.startActivity(intent)
         }
