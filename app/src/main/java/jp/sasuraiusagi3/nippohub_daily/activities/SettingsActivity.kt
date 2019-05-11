@@ -1,8 +1,11 @@
 package jp.sasuraiusagi3.nippohub_daily.activities
 
+import android.content.Context
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.widget.AdapterView
 import android.widget.ListView
 import jp.sasuraiusagi3.nippohub_daily.R
 import jp.sasuraiusagi3.nippohub_daily.utils.AccountManager
@@ -13,22 +16,30 @@ class SettingsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_settings)
 
-        val settingsList = findViewById<ListView>(R.id.settingsListView)
+        findViewById<ListView>(R.id.settingsListView).also {
+            it.onItemClickListener = SettingsListItemClickListener(this)
+        }
+    }
 
-        // TODO: 定数に置き換える
-        settingsList.setOnItemClickListener { parent, view, position, id ->
+    private class SettingsListItemClickListener(private val context: Context): AdapterView.OnItemClickListener {
+        private val POSITION_AGREEMENTS = 0
+        private val POSITION_PRIVACY = 1
+        private val POSITION_SIGNIN = 2
+
+        override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
             val intent = when(position) {
-                0 -> Intent(this, AgreementsActivity::class.java)
-                1 -> Intent(this, PrivacyActivity::class.java)
-                2 -> Intent(this, SignInActivity::class.java)
+                POSITION_AGREEMENTS -> Intent(this.context, AgreementsActivity::class.java)
+                POSITION_PRIVACY -> Intent(this.context, PrivacyActivity::class.java)
+                POSITION_SIGNIN -> Intent(this.context, SignInActivity::class.java)
                 else -> throw RuntimeException() // TODO: 独自の例外に変える
             }
 
-            if (position == 2) {
+            if (position == POSITION_SIGNIN) {
                 AccountManager.signOut()
             }
 
-            startActivity(intent)
+            this.context.startActivity(intent)
         }
+
     }
 }
