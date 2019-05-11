@@ -10,19 +10,21 @@
         android:id="@+id/settingsToolBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:minHeight="?attr/actionBarSize"
-        android:background="?attr/colorPrimary">
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize">
+
         <Button
             android:id="@+id/settingsButtonToBack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="戻る" />
     </android.support.v7.widget.Toolbar>
+
     <ListView
         android:id="@+id/settingsListView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:entries="@array/settings"
-        app:layout_constraintTop_toBottomOf="@id/settingsToolBar"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/settingsToolBar" />
 </android.support.constraint.ConstraintLayout>
