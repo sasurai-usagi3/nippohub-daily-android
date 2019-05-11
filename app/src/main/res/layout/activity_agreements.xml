@@ -17,7 +17,9 @@
             android:id="@+id/agreementsButtonToBack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="閉じる" />
+            android:background="@android:color/transparent"
+            android:text="@string/back"
+            android:textColor="@color/colorLink" />
     </android.support.v7.widget.Toolbar>
 
     <WebView
@@ -25,5 +27,5 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/agreementsToolBar"></WebView>
+        app:layout_constraintTop_toBottomOf="@id/agreementsToolBar" />
 </android.support.constraint.ConstraintLayout>
