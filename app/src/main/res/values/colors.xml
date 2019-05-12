@@ -6,4 +6,7 @@
     <color name="colorLink">#4087F7</color>
     <color name="colorOK">#97C9FF</color>
     <color name="colorSignUp">#9BFFA6</color>
+    <color name="colorBackground">#ffffff</color>
+    <color name="colorTextMain">#414141</color>
+    <color name="colorDivider">#dcdcdc</color>
 </resources>
