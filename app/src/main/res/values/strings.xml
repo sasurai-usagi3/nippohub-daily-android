@@ -6,6 +6,7 @@
     <string name="dailyReportDate">日付</string>
     <string name="dailyReportTitle">タイトル</string>
     <string name="dailyReportContent">内容</string>
+    <string name="create">作成</string>
     <string name="update">更新</string>
     <string name="setting">設定</string>
     <string name="dummyDailyReportTitle">20xx-xx-xx 今日はいい日だった</string>
