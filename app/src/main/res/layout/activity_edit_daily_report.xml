@@ -47,6 +47,7 @@
                 android:id="@+id/editDailyReportFormDate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:calendarViewShown="false"
                 android:datePickerMode="spinner"
                 app:layout_constraintTop_toBottomOf="@+id/editDailyReportLabelDate" />
 
