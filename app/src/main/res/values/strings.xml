@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">nippohub_daily</string>
     <string name="back">戻る</string>
+    <string name="newDailyReport">新規作成</string>
+    <string name="setting">設定</string>
+    <string name="dummyDailyReportTitle">20xx-xx-xx 今日はいい日だった</string>
     <string-array name="settings">
         <item>利用規約</item>
         <item>プライバシーポリシー</item>
