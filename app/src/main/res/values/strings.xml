@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">nippohub_daily</string>
+    <string name="app_name">NippoHub</string>
     <string name="back">戻る</string>
     <string name="newDailyReport">新規作成</string>
     <string name="editDailyReport">編集</string>
