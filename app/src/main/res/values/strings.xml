@@ -1,5 +1,24 @@
 <resources>
-    <string name="app_name">nippohub_daily</string>
+    <string name="app_name">NippoHub</string>
+    <string name="back">戻る</string>
+    <string name="newDailyReport">新規作成</string>
+    <string name="editDailyReport">編集</string>
+    <string name="dailyReportDate">日付</string>
+    <string name="dailyReportTitle">タイトル</string>
+    <string name="dailyReportContent">内容</string>
+    <string name="create">作成</string>
+    <string name="update">更新</string>
+    <string name="setting">設定</string>
+    <string name="userEmail">メールアドレス</string>
+    <string name="userPassword">パスワード</string>
+    <string name="userPasswordConfirmation">パスワードの確認</string>
+    <string name="signIn">サインイン</string>
+    <string name="signUp">サインアップ</string>
+    <string name="toSignUp">登録する</string>
+    <string name="privacy">プライバシーポリシー</string>
+    <string name="agreements">利用規約</string>
+    <string name="signUpNotion">サインアップすると利用規約とプライバシーポリシーに同意したことになります。</string>
+    <string name="dummyDailyReportTitle">20xx-xx-xx 今日はいい日だった</string>
     <string-array name="settings">
         <item>利用規約</item>
         <item>プライバシーポリシー</item>

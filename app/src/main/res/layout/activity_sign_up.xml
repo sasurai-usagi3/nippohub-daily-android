@@ -4,87 +4,111 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingBottom="32dp"
+    android:paddingEnd="16dp"
+    android:paddingStart="16dp"
+    android:paddingTop="16dp"
     tools:context="jp.sasuraiusagi3.nippohub_daily.activities.SignUpActivity">
 
-    <TextView
-        android:id="@+id/signUpLabelEmail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:text="email"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/signUpFormEmail"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/signUpLabelEmail" />
+        android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/signUpLabelPassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="password"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/signUpFormEmail" />
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    <EditText
-        android:id="@+id/signUpFormPassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/signUpLabelPassword" />
+            <TextView
+                android:id="@+id/signUpLabelEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:text="@string/userEmail"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/signUpLabelPasswordConfirmation"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="password confirmation"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/signUpFormPassword" />
+            <EditText
+                android:id="@+id/signUpFormEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                app:layout_constraintTop_toBottomOf="@id/signUpLabelEmail" />
 
-    <EditText
-        android:id="@+id/signUpFormPasswordConfirmation"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/signUpLabelPasswordConfirmation" />
+            <TextView
+                android:id="@+id/signUpLabelPassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:text="@string/userPassword"
+                app:layout_constraintTop_toBottomOf="@id/signUpFormEmail" />
 
-    <Button
-        android:id="@+id/signUpButtonSubmit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:text="サインアップ"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/signUpFormPasswordConfirmation" />
+            <EditText
+                android:id="@+id/signUpFormPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                app:layout_constraintTop_toBottomOf="@id/signUpLabelPassword" />
 
-    <Button
-        android:id="@+id/signUpButtonToPrivacy"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="プライバシーポリシー"
-        app:layout_constraintTop_toBottomOf="@id/signUpButtonSubmit" />
+            <TextView
+                android:id="@+id/signUpLabelPasswordConfirmation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:text="@string/userPasswordConfirmation"
+                app:layout_constraintTop_toBottomOf="@id/signUpFormPassword" />
 
-    <Button
-        android:id="@+id/signUpButtonToAgreements"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="利用規約"
-        app:layout_constraintLeft_toRightOf="@id/signUpButtonToPrivacy"
-        app:layout_constraintTop_toBottomOf="@id/signUpButtonSubmit" />
+            <EditText
+                android:id="@+id/signUpFormPasswordConfirmation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/signUpLabelPasswordConfirmation" />
+
+            <TextView
+                android:id="@+id/signUpLabelSignUpNotion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/signUpNotion"
+                android:textSize="12sp"
+                app:layout_constraintTop_toBottomOf="@id/signUpFormPasswordConfirmation" />
+
+            <Button
+                android:id="@+id/signUpButtonSubmit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:background="@color/colorOK"
+                android:text="@string/signUp"
+                android:textSize="16sp"
+                app:layout_constraintTop_toBottomOf="@+id/signUpLabelSignUpNotion" />
+
+            <Button
+                android:id="@+id/signUpButtonToAgreements"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="20dp"
+                android:background="@android:color/transparent"
+                android:text="@string/agreements"
+                android:textColor="@color/colorLink"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/signUpButtonSubmit" />
+
+            <Button
+                android:id="@+id/signUpButtonToPrivacy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:background="@android:color/transparent"
+                android:text="@string/privacy"
+                android:textColor="@color/colorLink"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/signUpButtonToAgreements" />
+        </android.support.constraint.ConstraintLayout>
+    </ScrollView>
+
 </android.support.constraint.ConstraintLayout>
