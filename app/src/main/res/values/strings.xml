@@ -9,6 +9,10 @@
     <string name="create">作成</string>
     <string name="update">更新</string>
     <string name="setting">設定</string>
+    <string name="userEmail">メールアドレス</string>
+    <string name="userPassword">パスワード</string>
+    <string name="signIn">サインイン</string>
+    <string name="toSignUp">登録する</string>
     <string name="dummyDailyReportTitle">20xx-xx-xx 今日はいい日だった</string>
     <string-array name="settings">
         <item>利用規約</item>
