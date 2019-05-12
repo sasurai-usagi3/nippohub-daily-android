@@ -5,6 +5,7 @@
 /.idea/libraries
 /build
 /captures
+app/release
 
 *.apk
 *.ap_
