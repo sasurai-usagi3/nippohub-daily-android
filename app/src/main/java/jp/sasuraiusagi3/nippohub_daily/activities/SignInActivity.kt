@@ -9,6 +9,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import jp.sasuraiusagi3.nippohub_daily.R
+import jp.sasuraiusagi3.nippohub_daily.dialogs.PasswordAuthErrorDialogFragment
 import jp.sasuraiusagi3.nippohub_daily.repositories.UserRepository
 
 class SignInActivity : AppCompatActivity() {
@@ -52,15 +53,21 @@ class SignInActivity : AppCompatActivity() {
                     formEmail.text.toString(),
                     formPassword.text.toString(),
                     {
+
+                        if (!it.isSuccessful) {
+                            return@signIn
+                        }
+
                         val intent = DailyReportIndexActivity.build(activity)
 
                         this.activity.startActivity(intent)
                         this.activity.finish()
                     },
                     {
-                        println("|------|")
-                        println(it)
-                        println("|------|")
+                        // TODO: ネットワークエラーとわけたい
+                        val dialog = PasswordAuthErrorDialogFragment()
+
+                        dialog.show(activity.fragmentManager, null)
                     }
             )
         }
