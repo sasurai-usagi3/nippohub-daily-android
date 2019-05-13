@@ -9,6 +9,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import jp.sasuraiusagi3.nippohub_daily.R
+import jp.sasuraiusagi3.nippohub_daily.dialogs.EmailAlreadyUserdErrorDialogFragment
 import jp.sasuraiusagi3.nippohub_daily.dialogs.PasswordAuthErrorDialogFragment
 import jp.sasuraiusagi3.nippohub_daily.repositories.UserRepository
 
@@ -63,15 +64,19 @@ class SignUpActivity : AppCompatActivity() {
                     formEmail.text.toString(),
                     formPassword.text.toString(),
                     {
+                        if (!it.isSuccessful) {
+                            return@signUp
+                        }
+
                         val intent = DailyReportIndexActivity.build(activity)
 
                         this.activity.startActivity(intent)
                         this.activity.finish()
                     },
                     {
-                        println("|------|")
-                        println(it)
-                        println("|------|")
+                        val dialog = EmailAlreadyUserdErrorDialogFragment()
+
+                        dialog.show(this.activity.fragmentManager, null)
                     }
             )
         }
