@@ -7,6 +7,7 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import jp.sasuraiusagi3.nippohub_daily.models.DailyReport
 import java.time.LocalDate
+import java.time.format.DateTimeParseException
 
 /**
  * Created by sasurai-usagi3 on 2019/05/11.
@@ -74,7 +75,12 @@ object DailyReportRepository {
             val dailyReports = p0.children.map {
                 DailyReport(
                         it.key!!,
-                        LocalDate.parse(it.child("date").value as String),
+                        try {
+                            LocalDate.parse(it.child("date").value as String)
+                        } catch (e: DateTimeParseException) {
+                            // TODO: createdAtなどから極力復元を試みる
+                            LocalDate.now()
+                        },
                         it.child("title").value as String,
                         it.child("content").value as String
                 )
