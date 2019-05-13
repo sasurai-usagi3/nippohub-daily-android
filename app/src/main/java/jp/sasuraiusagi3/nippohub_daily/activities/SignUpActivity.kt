@@ -9,6 +9,8 @@ import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import jp.sasuraiusagi3.nippohub_daily.R
+import jp.sasuraiusagi3.nippohub_daily.dialogs.EmailAlreadyUserdErrorDialogFragment
+import jp.sasuraiusagi3.nippohub_daily.dialogs.PasswordAuthErrorDialogFragment
 import jp.sasuraiusagi3.nippohub_daily.repositories.UserRepository
 
 class SignUpActivity : AppCompatActivity() {
@@ -51,23 +53,32 @@ class SignUpActivity : AppCompatActivity() {
                                             private val formPassword: EditText,
                                             private val formPasswordConfirmation: EditText) : View.OnClickListener {
         override fun onClick(v: View?) {
-            if (formPassword.text.toString() == formPasswordConfirmation.text.toString()) {
-                UserRepository.signUp(
-                        formEmail.text.toString(),
-                        formPassword.text.toString(),
-                        {
-                            val intent = DailyReportIndexActivity.build(activity)
+            if (formPassword.text.toString() != formPasswordConfirmation.text.toString()) {
+                val dialog = PasswordAuthErrorDialogFragment()
 
-                            this.activity.startActivity(intent)
-                            this.activity.finish()
-                        },
-                        {
-                            println("|------|")
-                            println(it)
-                            println("|------|")
-                        }
-                )
+                dialog.show(this.activity.fragmentManager, null)
+                return
             }
+
+            UserRepository.signUp(
+                    formEmail.text.toString(),
+                    formPassword.text.toString(),
+                    {
+                        if (!it.isSuccessful) {
+                            return@signUp
+                        }
+
+                        val intent = DailyReportIndexActivity.build(activity)
+
+                        this.activity.startActivity(intent)
+                        this.activity.finish()
+                    },
+                    {
+                        val dialog = EmailAlreadyUserdErrorDialogFragment()
+
+                        dialog.show(this.activity.fragmentManager, null)
+                    }
+            )
         }
     }
 
