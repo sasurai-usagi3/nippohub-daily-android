@@ -1,6 +1,6 @@
 package jp.sasuraiusagi3.nippohub_daily.activities
 
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import jp.sasuraiusagi3.nippohub_daily.R
 import jp.sasuraiusagi3.nippohub_daily.repositories.UserRepository
