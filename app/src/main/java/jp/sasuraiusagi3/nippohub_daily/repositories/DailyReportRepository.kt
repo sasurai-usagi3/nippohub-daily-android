@@ -23,10 +23,24 @@ object DailyReportRepository {
      * @param user ユーザ
      * @param limit 最大値
      */
-    fun fetch(user: FirebaseUser, limit: Int = 30, callBackFun: FetchDailyReportsCallBackFun) {
+    fun fetch(user: FirebaseUser, gteq_date: LocalDate? = null, lteq_date: LocalDate? = null, limit: Int = 30, callBackFun: FetchDailyReportsCallBackFun) {
         this.instance
                 .getReference("/users/${user.uid}/daily_reports")
                 .orderByChild("date")
+                .let {
+                    if (gteq_date != null) {
+                        it.startAt(gteq_date.toString())
+                    } else {
+                        it
+                    }
+                }
+                .let {
+                    if (lteq_date != null) {
+                        it.endAt(lteq_date.toString())
+                    } else {
+                        it
+                    }
+                }
                 .limitToLast(limit)
                 .addValueEventListener(DailyReportIndexFetcher(callBackFun))
     }
