@@ -13,8 +13,11 @@ import jp.sasuraiusagi3.nippohub_daily.adapters.DailyReportListAdapter
 import jp.sasuraiusagi3.nippohub_daily.models.DailyReport
 import jp.sasuraiusagi3.nippohub_daily.repositories.DailyReportRepository
 import jp.sasuraiusagi3.nippohub_daily.repositories.UserRepository
+import java.time.YearMonth
 
 class DailyReportListFragment : Fragment() {
+
+    lateinit var yearMonth: YearMonth
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
@@ -33,7 +36,7 @@ class DailyReportListFragment : Fragment() {
             it.onItemClickListener = DailyReportListClickListener(context!!)
         }
 
-        DailyReportRepository.fetch(currentUser) {
+        DailyReportRepository.fetch(currentUser, yearMonth.atDay(1), yearMonth.atEndOfMonth()) {
             adapter.dailyReports = it
             adapter.notifyDataSetChanged()
         }
