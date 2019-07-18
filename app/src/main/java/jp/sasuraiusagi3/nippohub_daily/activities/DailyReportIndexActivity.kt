@@ -12,6 +12,7 @@ import androidx.viewpager.widget.ViewPager
 import com.google.android.material.tabs.TabLayout
 import jp.sasuraiusagi3.nippohub_daily.R
 import jp.sasuraiusagi3.nippohub_daily.repositories.UserRepository
+import java.time.YearMonth
 
 class DailyReportIndexActivity : AppCompatActivity() {
 
@@ -63,9 +64,18 @@ class DailyReportIndexActivity : AppCompatActivity() {
         }
     }
 
-    private class DailyReportListViewPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
-        override fun getCount() = 5
+    private class DailyReportListViewPagerAdapter(
+            fm: FragmentManager,
+            private val currentYearMonth: YearMonth = YearMonth.now()
+    ) : FragmentPagerAdapter(fm) {
+        override fun getCount() = 24
 
-        override fun getItem(position: Int) = DailyReportListFragment()
+        override fun getItem(position: Int) = DailyReportListFragment().apply {
+            yearMonth = currentYearMonth.minusMonths(position.toLong())
+        }
+
+        override fun getPageTitle(position: Int) = currentYearMonth.minusMonths(position.toLong()).toString()
+
+        override fun getPageWidth(position: Int) = 100F
     }
 }
