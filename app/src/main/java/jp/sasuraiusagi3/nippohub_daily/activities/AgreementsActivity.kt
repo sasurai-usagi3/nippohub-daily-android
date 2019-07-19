@@ -18,10 +18,10 @@ class AgreementsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_agreements)
 
-        findViewById<WebView>(R.id.agreementsWebview).apply {
+        findViewById<WebView>(R.id.agreements_web_view).apply {
             this.loadUrl("https://nippohub.com/agreements_content.html")
         }
-        findViewById<Button>(R.id.agreementsButtonToBack).also {
+        findViewById<Button>(R.id.agreements_button_to_back).also {
             it.setOnClickListener(ButtonToBackClickListener(this))
         }
     }

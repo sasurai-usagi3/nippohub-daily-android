@@ -31,12 +31,12 @@ class SignInActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_in)
 
-        val formEmail = findViewById<EditText>(R.id.signInFormEmail)
-        val formPassword = findViewById<EditText>(R.id.signInFormPassword)
-        findViewById<Button>(R.id.signInButtonSubmit).also {
+        val formEmail = findViewById<EditText>(R.id.sign_in_form_email)
+        val formPassword = findViewById<EditText>(R.id.sign_in_form_password)
+        findViewById<Button>(R.id.sign_in_button_submit).also {
             it.setOnClickListener(ButtonSubmitClickListener(this, formEmail, formPassword))
         }
-        findViewById<Button>(R.id.signInButtonToSignUp).also {
+        findViewById<Button>(R.id.sign_in_button_to_sign_up).also {
             it.setOnClickListener(ButtonToSignUpClickListener(this))
         }
     }

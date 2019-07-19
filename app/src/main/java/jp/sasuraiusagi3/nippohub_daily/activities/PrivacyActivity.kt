@@ -18,10 +18,10 @@ class PrivacyActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_privacy)
 
-        findViewById<WebView>(R.id.privacyWebview).apply {
+        findViewById<WebView>(R.id.privacy_web_view).apply {
             this.loadUrl("https://nippohub.com/privacy_content.html")
         }
-        findViewById<Button>(R.id.privacyButtonToBack).also {
+        findViewById<Button>(R.id.privacy_button_to_back).also {
             it.setOnClickListener(ButtonToBackClickListener(this))
         }
     }
