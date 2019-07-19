@@ -75,7 +75,5 @@ class DailyReportIndexActivity : AppCompatActivity() {
         }
 
         override fun getPageTitle(position: Int) = currentYearMonth.minusMonths(position.toLong()).toString()
-
-        override fun getPageWidth(position: Int) = 100F
     }
 }
