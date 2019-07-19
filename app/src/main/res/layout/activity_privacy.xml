@@ -7,14 +7,14 @@
     tools:context="jp.sasuraiusagi3.nippohub_daily.activities.PrivacyActivity">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/privacyToolBar"
+        android:id="@+id/privacy_tool_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize">
 
         <Button
-            android:id="@+id/privacyButtonToBack"
+            android:id="@+id/privacy_button_to_back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
@@ -23,9 +23,9 @@
     </androidx.appcompat.widget.Toolbar>
 
     <WebView
-        android:id="@+id/privacyWebview"
+        android:id="@+id/privacy_web_view"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/privacyToolBar" />
+        app:layout_constraintTop_toBottomOf="@id/privacy_tool_bar" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,7 +7,7 @@
     tools:context="jp.sasuraiusagi3.nippohub_daily.activities.DailyReportShowActivity">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/dailyReportShowToolBar"
+        android:id="@+id/daily_report_show_tool_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?attr/colorPrimary"
@@ -18,7 +18,7 @@
             android:layout_height="match_parent">
 
             <Button
-                android:id="@+id/dailyReportShowButtonToBack"
+                android:id="@+id/daily_report_show_button_to_back"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
@@ -39,11 +39,11 @@
     </androidx.appcompat.widget.Toolbar>
 
     <WebView
-        android:id="@+id/dailyReportShowWebView"
+        android:id="@+id/daily_report_show_web_view"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginBottom="0dp"
         android:layout_marginTop="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/dailyReportShowToolBar" />
+        app:layout_constraintTop_toBottomOf="@id/daily_report_show_tool_bar" />
 </androidx.constraintlayout.widget.ConstraintLayout>

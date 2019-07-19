@@ -11,7 +11,7 @@
     tools:context="jp.sasuraiusagi3.nippohub_daily.activities.SignInActivity">
 
     <TextView
-        android:id="@+id/signInLabelEmail"
+        android:id="@+id/sign_in_label_email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/userEmail"
@@ -19,34 +19,34 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/signInFormEmail"
+        android:id="@+id/sign_in_form_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textEmailAddress"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/signInLabelEmail" />
+        app:layout_constraintTop_toBottomOf="@id/sign_in_label_email" />
 
     <TextView
-        android:id="@+id/signInLabelPassword"
+        android:id="@+id/sign_in_label_password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:text="@string/userPassword"
         android:textSize="16sp"
-        app:layout_constraintTop_toBottomOf="@id/signInFormEmail" />
+        app:layout_constraintTop_toBottomOf="@id/sign_in_form_email" />
 
     <EditText
-        android:id="@+id/signInFormPassword"
+        android:id="@+id/sign_in_form_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPassword"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/signInLabelPassword" />
+        app:layout_constraintTop_toBottomOf="@id/sign_in_label_password" />
 
     <Button
-        android:id="@+id/signInButtonSubmit"
+        android:id="@+id/sign_in_button_submit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
@@ -55,10 +55,10 @@
         android:textSize="16sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/signInFormPassword" />
+        app:layout_constraintTop_toBottomOf="@id/sign_in_form_password" />
 
     <Button
-        android:id="@+id/signInButtonToSignUp"
+        android:id="@+id/sign_in_button_to_sign_up"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -67,5 +67,5 @@
         android:textSize="16sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/signInButtonSubmit" />
+        app:layout_constraintTop_toBottomOf="@id/sign_in_button_submit" />
 </androidx.constraintlayout.widget.ConstraintLayout>

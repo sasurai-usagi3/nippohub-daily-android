@@ -21,10 +21,10 @@ class SettingsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_settings)
 
-        findViewById<ListView>(R.id.settingsListView).also {
+        findViewById<ListView>(R.id.settings_list_view).also {
             it.onItemClickListener = SettingsListItemClickListener(this)
         }
-        findViewById<Button>(R.id.settingsButtonToBack).also {
+        findViewById<Button>(R.id.settings_button_to_back).also {
             it.setOnClickListener(ButtonToBackClickListener(this))
         }
     }
