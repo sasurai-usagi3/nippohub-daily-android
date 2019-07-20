@@ -1,4 +1,4 @@
-package jp.sasuraiusagi3.nippohub_daily.activities
+package jp.sasuraiusagi3.nippohub_daily.presentations.activities
 
 import android.app.Activity
 import android.content.Context
@@ -9,7 +9,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import jp.sasuraiusagi3.nippohub_daily.R
-import jp.sasuraiusagi3.nippohub_daily.dialogs.PasswordAuthErrorDialogFragment
+import jp.sasuraiusagi3.nippohub_daily.presentations.fragments.dialogs.PasswordAuthErrorDialogFragment
 import jp.sasuraiusagi3.nippohub_daily.repositories.UserRepository
 
 class SignInActivity : AppCompatActivity() {

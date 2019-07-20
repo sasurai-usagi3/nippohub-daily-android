@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="jp.sasuraiusagi3.nippohub_daily.activities.PrivacyActivity">
+    tools:context=".presentations.activities.PrivacyActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"

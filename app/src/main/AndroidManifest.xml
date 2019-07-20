@@ -9,22 +9,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.DailyReportIndexActivity" />
-        <activity android:name=".activities.SignInActivity" />
-        <activity android:name=".activities.SignUpActivity" />
-        <activity android:name=".activities.NewDailyReportActivity" />
-        <activity android:name=".activities.DailyReportShowActivity" />
-        <activity android:name=".activities.EditDailyReportActivity" />
-        <activity android:name=".activities.PrivacyActivity" />
-        <activity android:name=".activities.AgreementsActivity" />
-        <activity android:name=".activities.LaunchActivity">
+        <activity android:name="jp.sasuraiusagi3.nippohub_daily.presentations.activities.DailyReportIndexActivity" />
+        <activity android:name="jp.sasuraiusagi3.nippohub_daily.presentations.activities.SignInActivity" />
+        <activity android:name="jp.sasuraiusagi3.nippohub_daily.presentations.activities.SignUpActivity" />
+        <activity android:name="jp.sasuraiusagi3.nippohub_daily.presentations.activities.NewDailyReportActivity" />
+        <activity android:name="jp.sasuraiusagi3.nippohub_daily.presentations.activities.DailyReportShowActivity" />
+        <activity android:name="jp.sasuraiusagi3.nippohub_daily.presentations.activities.EditDailyReportActivity" />
+        <activity android:name="jp.sasuraiusagi3.nippohub_daily.presentations.activities.PrivacyActivity" />
+        <activity android:name="jp.sasuraiusagi3.nippohub_daily.presentations.activities.AgreementsActivity" />
+        <activity android:name="jp.sasuraiusagi3.nippohub_daily.presentations.activities.LaunchActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.SettingsActivity" />
+        <activity android:name="jp.sasuraiusagi3.nippohub_daily.presentations.activities.SettingsActivity" />
     </application>
 
 </manifest>

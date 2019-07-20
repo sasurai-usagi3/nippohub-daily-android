@@ -1,4 +1,4 @@
-package jp.sasuraiusagi3.nippohub_daily.activities
+package jp.sasuraiusagi3.nippohub_daily.presentations.activities
 
 import android.content.Context
 import android.content.Intent
@@ -11,6 +11,7 @@ import androidx.fragment.app.FragmentPagerAdapter
 import androidx.viewpager.widget.ViewPager
 import com.google.android.material.tabs.TabLayout
 import jp.sasuraiusagi3.nippohub_daily.R
+import jp.sasuraiusagi3.nippohub_daily.presentations.fragments.DailyReportListFragment
 import jp.sasuraiusagi3.nippohub_daily.repositories.UserRepository
 import java.time.YearMonth
 

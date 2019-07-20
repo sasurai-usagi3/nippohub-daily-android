@@ -1,4 +1,4 @@
-package jp.sasuraiusagi3.nippohub_daily.activities
+package jp.sasuraiusagi3.nippohub_daily.presentations.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
