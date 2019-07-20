@@ -1,49 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="32dp"
-    android:paddingEnd="16dp"
+    android:orientation="vertical"
     android:paddingStart="16dp"
     android:paddingTop="40dp"
+    android:paddingEnd="16dp"
+    android:paddingBottom="32dp"
     tools:context="jp.sasuraiusagi3.nippohub_daily.activities.SignInActivity">
 
     <TextView
-        android:id="@+id/sign_in_label_email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/userEmail"
-        android:textSize="16sp"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textSize="16sp" />
 
     <EditText
         android:id="@+id/sign_in_form_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="textEmailAddress"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/sign_in_label_email" />
+        android:inputType="textEmailAddress" />
 
     <TextView
-        android:id="@+id/sign_in_label_password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:text="@string/userPassword"
-        android:textSize="16sp"
-        app:layout_constraintTop_toBottomOf="@id/sign_in_form_email" />
+        android:textSize="16sp" />
 
     <EditText
         android:id="@+id/sign_in_form_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/sign_in_label_password" />
+        android:inputType="textPassword" />
 
     <Button
         android:id="@+id/sign_in_button_submit"
@@ -52,10 +42,7 @@
         android:layout_marginTop="60dp"
         android:background="@color/colorOK"
         android:text="@string/signIn"
-        android:textSize="16sp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/sign_in_form_password" />
+        android:textSize="16sp" />
 
     <Button
         android:id="@+id/sign_in_button_to_sign_up"
@@ -64,8 +51,5 @@
         android:layout_marginTop="16dp"
         android:background="@color/colorSignUp"
         android:text="@string/toSignUp"
-        android:textSize="16sp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/sign_in_button_submit" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:textSize="16sp" />
+</LinearLayout>

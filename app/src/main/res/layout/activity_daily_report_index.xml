@@ -8,7 +8,6 @@
     tools:context="jp.sasuraiusagi3.nippohub_daily.activities.DailyReportIndexActivity">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/daily_report_index_tool_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?attr/colorPrimary"
