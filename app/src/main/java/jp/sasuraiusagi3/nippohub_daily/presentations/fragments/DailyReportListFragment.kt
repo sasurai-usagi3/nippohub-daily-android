@@ -1,4 +1,4 @@
-package jp.sasuraiusagi3.nippohub_daily.presentations.activities
+package jp.sasuraiusagi3.nippohub_daily.presentations.fragments
 
 import android.content.Context
 import android.os.Bundle
@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment
 import jp.sasuraiusagi3.nippohub_daily.R
 import jp.sasuraiusagi3.nippohub_daily.adapters.DailyReportListAdapter
 import jp.sasuraiusagi3.nippohub_daily.models.DailyReport
+import jp.sasuraiusagi3.nippohub_daily.presentations.activities.DailyReportShowActivity
 import jp.sasuraiusagi3.nippohub_daily.repositories.DailyReportRepository
 import jp.sasuraiusagi3.nippohub_daily.repositories.UserRepository
 import java.time.YearMonth
