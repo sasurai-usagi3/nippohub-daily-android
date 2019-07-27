@@ -1,100 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="jp.sasuraiusagi3.nippohub_daily.activities.NewDailyReportActivity">
+    android:orientation="vertical"
+    tools:context=".presentations.activities.NewDailyReportActivity">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/newDailyReportToolBar"
+    <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize">
 
         <Button
-            android:id="@+id/newDailyReportButtonToBack"
+            android:id="@+id/new_daily_report_button_to_back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
             android:text="@string/back"
             android:textColor="@color/colorLink" />
-    </android.support.v7.widget.Toolbar>
+    </androidx.appcompat.widget.Toolbar>
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/newDailyReportToolBar">
+        android:layout_height="match_parent">
 
-        <android.support.constraint.ConstraintLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingBottom="32dp"
-            android:paddingEnd="16dp"
+            android:orientation="vertical"
             android:paddingStart="16dp"
-            android:paddingTop="20dp">
+            android:paddingTop="20dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="32dp">
 
             <TextView
-                android:id="@+id/newDailyReportLabelDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/dailyReportDate"
                 android:textSize="16sp" />
 
             <DatePicker
-                android:id="@+id/newDailyReportFormDate"
+                android:id="@+id/new_daily_report_form_date"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:calendarViewShown="false"
-                android:datePickerMode="spinner"
-                app:layout_constraintTop_toBottomOf="@+id/newDailyReportLabelDate" />
+                android:datePickerMode="spinner" />
 
             <TextView
-                android:id="@+id/newDailyReportLabelTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:text="@string/dailyReportTitle"
-                android:textSize="16sp"
-                app:layout_constraintTop_toBottomOf="@+id/newDailyReportFormDate" />
+                android:textSize="16sp" />
 
             <EditText
-                android:id="@+id/newDailyReportFormTitle"
+                android:id="@+id/new_daily_report_form_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text"
-                android:maxLines="1"
-                app:layout_constraintTop_toBottomOf="@+id/newDailyReportLabelTitle" />
+                android:maxLines="1" />
 
             <TextView
-                android:id="@+id/newDailyReportLabelContent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:text="@string/dailyReportContent"
-                android:textSize="16sp"
-                app:layout_constraintTop_toBottomOf="@+id/newDailyReportFormTitle" />
+                android:textSize="16sp" />
 
             <EditText
-                android:id="@+id/newDailyReportFormContent"
+                android:id="@+id/new_daily_report_form_content"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@+id/newDailyReportLabelContent" />
+                android:layout_height="wrap_content" />
 
             <Button
-                android:id="@+id/newDailyReportButtonSubmit"
+                android:id="@+id/new_daily_report_button_submit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="40dp"
                 android:background="@color/colorOK"
                 android:text="@string/create"
-                android:textSize="16sp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/newDailyReportFormContent" />
-        </android.support.constraint.ConstraintLayout>
+                android:textSize="16sp" />
+        </LinearLayout>
     </ScrollView>
 
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>

@@ -1,8 +1,8 @@
-package jp.sasuraiusagi3.nippohub_daily.activities
+package jp.sasuraiusagi3.nippohub_daily.presentations.activities
 
 import android.content.Context
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
@@ -21,10 +21,10 @@ class SettingsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_settings)
 
-        findViewById<ListView>(R.id.settingsListView).also {
+        findViewById<ListView>(R.id.settings_list_view).also {
             it.onItemClickListener = SettingsListItemClickListener(this)
         }
-        findViewById<Button>(R.id.settingsButtonToBack).also {
+        findViewById<Button>(R.id.settings_button_to_back).also {
             it.setOnClickListener(ButtonToBackClickListener(this))
         }
     }

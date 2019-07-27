@@ -1,49 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="jp.sasuraiusagi3.nippohub_daily.activities.DailyReportShowActivity">
+    android:orientation="vertical"
+    tools:context=".presentations.activities.DailyReportShowActivity">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/dailyReportShowToolBar"
+    <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize">
 
-        <android.support.constraint.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+        <Button
+            android:id="@+id/daily_report_show_button_to_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:text="@string/back"
+            android:textColor="@color/colorLink" />
 
-            <Button
-                android:id="@+id/dailyReportShowButtonToBack"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@android:color/transparent"
-                android:text="@string/back"
-                android:textColor="@color/colorLink"
-                app:layout_constraintLeft_toLeftOf="parent" />
+        <Button
+            android:id="@+id/dailyReportShowButtonToEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:background="@android:color/transparent"
+            android:text="@string/editDailyReport"
+            android:textColor="@color/colorLink"
+            tools:ignore="RtlHardcoded" />
 
-            <Button
-                android:id="@+id/dailyReportShowButtonToEdit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@android:color/transparent"
-                android:text="@string/editDailyReport"
-                android:textColor="@color/colorLink"
-                app:layout_constraintRight_toRightOf="parent" />
-        </android.support.constraint.ConstraintLayout>
-
-    </android.support.v7.widget.Toolbar>
+    </androidx.appcompat.widget.Toolbar>
 
     <WebView
-        android:id="@+id/dailyReportShowWebView"
+        android:id="@+id/daily_report_show_web_view"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginBottom="0dp"
+        android:layout_height="match_parent"
         android:layout_marginTop="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/dailyReportShowToolBar" />
-</android.support.constraint.ConstraintLayout>
+        android:layout_marginBottom="0dp" />
+</LinearLayout>

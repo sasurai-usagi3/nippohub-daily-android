@@ -1,8 +1,8 @@
-package jp.sasuraiusagi3.nippohub_daily.activities
+package jp.sasuraiusagi3.nippohub_daily.presentations.activities
 
 import android.content.Context
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.webkit.WebView
 import android.widget.Button
@@ -18,10 +18,10 @@ class PrivacyActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_privacy)
 
-        findViewById<WebView>(R.id.privacyWebview).apply {
+        findViewById<WebView>(R.id.privacy_web_view).apply {
             this.loadUrl("https://nippohub.com/privacy_content.html")
         }
-        findViewById<Button>(R.id.privacyButtonToBack).also {
+        findViewById<Button>(R.id.privacy_button_to_back).also {
             it.setOnClickListener(ButtonToBackClickListener(this))
         }
     }

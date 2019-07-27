@@ -1,8 +1,8 @@
-package jp.sasuraiusagi3.nippohub_daily.activities
+package jp.sasuraiusagi3.nippohub_daily.presentations.activities
 
 import android.content.Context
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.webkit.WebView
@@ -38,7 +38,7 @@ class DailyReportShowActivity : AppCompatActivity() {
         setContentView(R.layout.activity_daily_report_show)
 
         val dailyReport = this.intent.getSerializableExtra(DAILY_REPORT) as DailyReport
-        findViewById<WebView>(R.id.dailyReportShowWebView).apply {
+        findViewById<WebView>(R.id.daily_report_show_web_view).apply {
             this.webViewClient = WebClientForDailyReport(dailyReport)
             this.settings.javaScriptEnabled = true
             this.loadUrl("file:///android_asset/html/daily_report_show.html")
@@ -46,7 +46,7 @@ class DailyReportShowActivity : AppCompatActivity() {
         findViewById<Button>(R.id.dailyReportShowButtonToEdit).also {
             it.setOnClickListener(ButtonToEditClickListener(this, dailyReport))
         }
-        findViewById<Button>(R.id.dailyReportShowButtonToBack).also {
+        findViewById<Button>(R.id.daily_report_show_button_to_back).also {
             it.setOnClickListener(ButtonToBackClickListener(this))
         }
     }

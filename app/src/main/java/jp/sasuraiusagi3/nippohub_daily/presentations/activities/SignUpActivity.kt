@@ -1,16 +1,16 @@
-package jp.sasuraiusagi3.nippohub_daily.activities
+package jp.sasuraiusagi3.nippohub_daily.presentations.activities
 
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import jp.sasuraiusagi3.nippohub_daily.R
-import jp.sasuraiusagi3.nippohub_daily.dialogs.EmailAlreadyUserdErrorDialogFragment
-import jp.sasuraiusagi3.nippohub_daily.dialogs.PasswordAuthErrorDialogFragment
+import jp.sasuraiusagi3.nippohub_daily.presentations.fragments.dialogs.EmailAlreadyUserdErrorDialogFragment
+import jp.sasuraiusagi3.nippohub_daily.presentations.fragments.dialogs.PasswordAuthErrorDialogFragment
 import jp.sasuraiusagi3.nippohub_daily.repositories.UserRepository
 
 class SignUpActivity : AppCompatActivity() {
@@ -32,18 +32,18 @@ class SignUpActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up)
 
-        val formEmail = findViewById<EditText>(R.id.signUpFormEmail)
-        val formPassword = findViewById<EditText>(R.id.signUpFormPassword)
-        val formPasswordConfirmation = findViewById<EditText>(R.id.signUpFormPasswordConfirmation)
-        findViewById<Button>(R.id.signUpButtonSubmit).also {
+        val formEmail = findViewById<EditText>(R.id.sign_up_form_email)
+        val formPassword = findViewById<EditText>(R.id.sign_up_form_password)
+        val formPasswordConfirmation = findViewById<EditText>(R.id.sign_up_form_password_confirmation)
+        findViewById<Button>(R.id.sign_up_button_submit).also {
             it.setOnClickListener(
                     ButtonSubmitClickListener(this, formEmail, formPassword, formPasswordConfirmation)
             )
         }
-        findViewById<Button>(R.id.signUpButtonToPrivacy).also {
+        findViewById<Button>(R.id.sign_up_button_to_privacy).also {
             it.setOnClickListener(ButtonToPrivacyClickListener(this))
         }
-        findViewById<Button>(R.id.signUpButtonToAgreements).also {
+        findViewById<Button>(R.id.sign_up_button_to_agreements).also {
             it.setOnClickListener(ButtonToAgreementsClickListener(this))
         }
     }

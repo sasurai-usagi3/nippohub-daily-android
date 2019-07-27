@@ -1,10 +1,10 @@
-package jp.sasuraiusagi3.nippohub_daily.activities
+package jp.sasuraiusagi3.nippohub_daily.presentations.activities
 
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.view.View
 import android.widget.Button
 import android.widget.DatePicker
@@ -43,21 +43,21 @@ class EditDailyReportActivity : AppCompatActivity() {
 
         val currentUser = UserRepository.currentUser ?: return
         val dailyReport = this.intent.getSerializableExtra(DAILY_REPORT) as DailyReport
-        val formDate = findViewById<DatePicker>(R.id.editDailyReportFormDate).apply {
+        val formDate = findViewById<DatePicker>(R.id.edit_daily_report_form_date).apply {
             this.updateDate(dailyReport.date.year, dailyReport.date.monthValue - 1, dailyReport.date.dayOfMonth)
         }
-        val formTitle = findViewById<EditText>(R.id.editDailyReportFormTitle).apply {
+        val formTitle = findViewById<EditText>(R.id.edit_daily_report_form_title).apply {
             this.setText(dailyReport.title)
         }
-        val formContent = findViewById<EditText>(R.id.editDailyReportFormContent).apply {
+        val formContent = findViewById<EditText>(R.id.edit_daily_report_form_content).apply {
             this.setText(dailyReport.content)
         }
-        findViewById<Button>(R.id.editDailyReportButtonSubmit).also {
+        findViewById<Button>(R.id.edit_daily_report_button_submit).also {
             it.setOnClickListener(
                     ButtonToSubmitClickListener(this, currentUser, dailyReport, formDate, formTitle, formContent)
             )
         }
-        findViewById<Button>(R.id.editDailyReportButtonToBack).also {
+        findViewById<Button>(R.id.edit_daily_report_button_to_back).also {
             it.setOnClickListener(ButtonToBackClickListener(this))
         }
     }

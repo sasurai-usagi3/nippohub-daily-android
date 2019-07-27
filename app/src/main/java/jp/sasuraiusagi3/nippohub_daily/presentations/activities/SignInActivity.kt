@@ -1,15 +1,15 @@
-package jp.sasuraiusagi3.nippohub_daily.activities
+package jp.sasuraiusagi3.nippohub_daily.presentations.activities
 
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import jp.sasuraiusagi3.nippohub_daily.R
-import jp.sasuraiusagi3.nippohub_daily.dialogs.PasswordAuthErrorDialogFragment
+import jp.sasuraiusagi3.nippohub_daily.presentations.fragments.dialogs.PasswordAuthErrorDialogFragment
 import jp.sasuraiusagi3.nippohub_daily.repositories.UserRepository
 
 class SignInActivity : AppCompatActivity() {
@@ -31,12 +31,12 @@ class SignInActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_in)
 
-        val formEmail = findViewById<EditText>(R.id.signInFormEmail)
-        val formPassword = findViewById<EditText>(R.id.signInFormPassword)
-        findViewById<Button>(R.id.signInButtonSubmit).also {
+        val formEmail = findViewById<EditText>(R.id.sign_in_form_email)
+        val formPassword = findViewById<EditText>(R.id.sign_in_form_password)
+        findViewById<Button>(R.id.sign_in_button_submit).also {
             it.setOnClickListener(ButtonSubmitClickListener(this, formEmail, formPassword))
         }
-        findViewById<Button>(R.id.signInButtonToSignUp).also {
+        findViewById<Button>(R.id.sign_in_button_to_sign_up).also {
             it.setOnClickListener(ButtonToSignUpClickListener(this))
         }
     }

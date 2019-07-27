@@ -1,9 +1,9 @@
-package jp.sasuraiusagi3.nippohub_daily.activities
+package jp.sasuraiusagi3.nippohub_daily.presentations.activities
 
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.webkit.WebView
 import android.widget.Button
 import jp.sasuraiusagi3.nippohub_daily.R
@@ -18,10 +18,10 @@ class AgreementsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_agreements)
 
-        findViewById<WebView>(R.id.agreementsWebview).apply {
+        findViewById<WebView>(R.id.agreements_web_view).apply {
             this.loadUrl("https://nippohub.com/agreements_content.html")
         }
-        findViewById<Button>(R.id.agreementsButtonToBack).also {
+        findViewById<Button>(R.id.agreements_button_to_back).also {
             it.setOnClickListener(ButtonToBackClickListener(this))
         }
     }

@@ -9,7 +9,7 @@
     tools:ignore="RtlSymmetry">
 
     <TextView
-        android:id="@+id/dailyReportListItemTitle"
+        android:id="@+id/daily_report_list_item_title"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:textSize="16sp"

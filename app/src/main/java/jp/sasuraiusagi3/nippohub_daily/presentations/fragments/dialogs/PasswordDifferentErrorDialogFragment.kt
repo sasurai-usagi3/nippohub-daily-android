@@ -1,4 +1,4 @@
-package jp.sasuraiusagi3.nippohub_daily.dialogs
+package jp.sasuraiusagi3.nippohub_daily.presentations.fragments.dialogs
 
 import android.app.AlertDialog
 import android.app.Dialog
