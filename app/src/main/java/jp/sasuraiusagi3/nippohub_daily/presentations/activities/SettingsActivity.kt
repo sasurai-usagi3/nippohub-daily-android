@@ -21,12 +21,9 @@ class SettingsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_settings)
 
-        findViewById<ListView>(R.id.settings_list_view).apply {
-            onItemClickListener = SettingsListItemClickListener(this@SettingsActivity)
-        }
-        findViewById<Button>(R.id.settings_button_to_back).apply {
-            setOnClickListener(ButtonToBackClickListener(this@SettingsActivity))
-        }
+        findViewById<ListView>(R.id.settings_list_view).onItemClickListener = SettingsListItemClickListener(this)
+
+        findViewById<Button>(R.id.settings_button_to_back).setOnClickListener(ButtonToBackClickListener(this))
     }
 
     private class SettingsListItemClickListener(private val context: Context) : AdapterView.OnItemClickListener {

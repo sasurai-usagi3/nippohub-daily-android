@@ -19,9 +19,7 @@ class DailyReportShowActivity : AppCompatActivity() {
         private const val DAILY_REPORT = "dailyReport"
 
         fun build(context: Context, dailyReport: DailyReport) =
-                Intent(context, DailyReportShowActivity::class.java).apply {
-                    this.putExtra(DAILY_REPORT, dailyReport)
-                }
+                Intent(context, DailyReportShowActivity::class.java).putExtra(DAILY_REPORT, dailyReport)
     }
 
     override fun onStart() {
@@ -45,12 +43,9 @@ class DailyReportShowActivity : AppCompatActivity() {
             this.settings.javaScriptEnabled = true
             this.loadUrl("file:///android_asset/html/daily_report_show.html")
         }
-        findViewById<Button>(R.id.dailyReportShowButtonToEdit).apply {
-            setOnClickListener(ButtonToEditClickListener(this@DailyReportShowActivity, dailyReport))
-        }
-        findViewById<Button>(R.id.daily_report_show_button_to_back).apply {
-            setOnClickListener(ButtonToBackClickListener(this@DailyReportShowActivity))
-        }
+
+        findViewById<Button>(R.id.dailyReportShowButtonToEdit).setOnClickListener(ButtonToEditClickListener(this, dailyReport))
+        findViewById<Button>(R.id.daily_report_show_button_to_back).setOnClickListener(ButtonToBackClickListener(this))
     }
 
     private class WebClientForDailyReport(private val dailyReport: DailyReport) : WebViewClient() {
