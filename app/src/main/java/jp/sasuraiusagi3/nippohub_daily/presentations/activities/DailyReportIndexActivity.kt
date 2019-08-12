@@ -50,7 +50,7 @@ class DailyReportIndexActivity : AppCompatActivity() {
         override fun onClick(v: View?) {
             val intent = SettingsActivity.build(context)
 
-            this.context.startActivity(intent)
+            context.startActivity(intent)
         }
     }
 
@@ -58,7 +58,7 @@ class DailyReportIndexActivity : AppCompatActivity() {
         override fun onClick(v: View?) {
             val intent = NewDailyReportActivity.build(context)
 
-            this.context.startActivity(intent)
+            context.startActivity(intent)
         }
     }
 

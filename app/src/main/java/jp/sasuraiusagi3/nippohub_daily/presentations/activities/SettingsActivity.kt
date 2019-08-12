@@ -43,7 +43,7 @@ class SettingsActivity : AppCompatActivity() {
                 UserRepository.signOut()
             }
 
-            this.context.startActivity(intent)
+            context.startActivity(intent)
         }
 
     }

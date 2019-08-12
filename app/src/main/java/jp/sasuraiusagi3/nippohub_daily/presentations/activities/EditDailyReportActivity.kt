@@ -23,7 +23,7 @@ class EditDailyReportActivity : AppCompatActivity() {
 
         fun build(context: Context, dailyReport: DailyReport) =
                 Intent(context, EditDailyReportActivity::class.java).apply {
-                    this.putExtra(DAILY_REPORT, dailyReport)
+                    putExtra(DAILY_REPORT, dailyReport)
                 }
     }
 
@@ -44,13 +44,13 @@ class EditDailyReportActivity : AppCompatActivity() {
         val currentUser = UserRepository.currentUser ?: return
         val dailyReport = this.intent.getSerializableExtra(DAILY_REPORT) as DailyReport
         val formDate = findViewById<DatePicker>(R.id.edit_daily_report_form_date).apply {
-            this.updateDate(dailyReport.date.year, dailyReport.date.monthValue - 1, dailyReport.date.dayOfMonth)
+            updateDate(dailyReport.date.year, dailyReport.date.monthValue - 1, dailyReport.date.dayOfMonth)
         }
         val formTitle = findViewById<EditText>(R.id.edit_daily_report_form_title).apply {
-            this.setText(dailyReport.title)
+            setText(dailyReport.title)
         }
         val formContent = findViewById<EditText>(R.id.edit_daily_report_form_content).apply {
-            this.setText(dailyReport.content)
+            setText(dailyReport.content)
         }
 
         findViewById<Button>(R.id.edit_daily_report_button_submit)
@@ -78,7 +78,7 @@ class EditDailyReportActivity : AppCompatActivity() {
 
             DailyReportRepository.update(currentUser, newDailyReport)
 
-            this.activity.finish()
+            activity.finish()
         }
 
     }

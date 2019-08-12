@@ -56,7 +56,7 @@ class SignUpActivity : AppCompatActivity() {
             if (formPassword.text.toString() != formPasswordConfirmation.text.toString()) {
                 val dialog = PasswordAuthErrorDialogFragment()
 
-                dialog.show(this.activity.fragmentManager, null)
+                dialog.show(activity.fragmentManager, null)
                 return
             }
 
@@ -70,8 +70,8 @@ class SignUpActivity : AppCompatActivity() {
 
                         val intent = DailyReportIndexActivity.build(activity)
 
-                        this.activity.startActivity(intent)
-                        this.activity.finish()
+                        activity.startActivity(intent)
+                        activity.finish()
                     },
                     {
                         val dialog = EmailAlreadyUserdErrorDialogFragment()

@@ -61,7 +61,7 @@ class NewDailyReportActivity : AppCompatActivity() {
 
             DailyReportRepository.create(currentUser, date, title, content)
 
-            this.activity.finish()
+            activity.finish()
         }
 
     }

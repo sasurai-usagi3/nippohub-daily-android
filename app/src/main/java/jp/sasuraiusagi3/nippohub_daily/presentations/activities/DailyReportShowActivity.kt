@@ -70,7 +70,7 @@ class DailyReportShowActivity : AppCompatActivity() {
 
             intent.putExtra(EditDailyReportActivity.DAILY_REPORT, dailyReport)
 
-            this.context.startActivity(intent)
+            context.startActivity(intent)
         }
     }
 }
