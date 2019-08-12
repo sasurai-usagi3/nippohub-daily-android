@@ -59,7 +59,7 @@ class DailyReportShowActivity : AppCompatActivity() {
 
             view ?: return
 
-            val title = "${dailyReport.date.toString()} ${dailyReport.title}".replace("'", "\\'")
+            val title = "${dailyReport.date} ${dailyReport.title}".replace("'", "\\'")
             val content = dailyReport.content
                     .replace("\\", "\\\\")
                     .replace("\n", "\\n")
