@@ -19,7 +19,7 @@ class DailyReportShowActivity : AppCompatActivity() {
 
         fun build(context: Context, dailyReport: DailyReport) =
                 Intent(context, DailyReportShowActivity::class.java).apply {
-                    this.putExtra(DailyReportShowActivity.DAILY_REPORT, dailyReport)
+                    this.putExtra(DAILY_REPORT, dailyReport)
                 }
     }
 
