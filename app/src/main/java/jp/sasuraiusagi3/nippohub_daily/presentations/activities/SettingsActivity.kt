@@ -21,12 +21,9 @@ class SettingsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_settings)
 
-        findViewById<ListView>(R.id.settings_list_view).also {
-            it.onItemClickListener = SettingsListItemClickListener(this)
-        }
-        findViewById<Button>(R.id.settings_button_to_back).also {
-            it.setOnClickListener(ButtonToBackClickListener(this))
-        }
+        findViewById<ListView>(R.id.settings_list_view).onItemClickListener = SettingsListItemClickListener(this)
+
+        findViewById<Button>(R.id.settings_button_to_back).setOnClickListener(ButtonToBackClickListener(this))
     }
 
     private class SettingsListItemClickListener(private val context: Context) : AdapterView.OnItemClickListener {
@@ -46,7 +43,7 @@ class SettingsActivity : AppCompatActivity() {
                 UserRepository.signOut()
             }
 
-            this.context.startActivity(intent)
+            context.startActivity(intent)
         }
 
     }

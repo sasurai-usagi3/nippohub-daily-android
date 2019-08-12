@@ -33,12 +33,12 @@ class SignInActivity : AppCompatActivity() {
 
         val formEmail = findViewById<EditText>(R.id.sign_in_form_email)
         val formPassword = findViewById<EditText>(R.id.sign_in_form_password)
-        findViewById<Button>(R.id.sign_in_button_submit).also {
-            it.setOnClickListener(ButtonSubmitClickListener(this, formEmail, formPassword))
-        }
-        findViewById<Button>(R.id.sign_in_button_to_sign_up).also {
-            it.setOnClickListener(ButtonToSignUpClickListener(this))
-        }
+
+        findViewById<Button>(R.id.sign_in_button_submit)
+                .setOnClickListener(ButtonSubmitClickListener(this, formEmail, formPassword))
+
+        findViewById<Button>(R.id.sign_in_button_to_sign_up)
+                .setOnClickListener(ButtonToSignUpClickListener(this))
     }
 
     // 戻れないようにしている

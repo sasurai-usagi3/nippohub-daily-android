@@ -39,14 +39,13 @@ class NewDailyReportActivity : AppCompatActivity() {
         val formDate = findViewById<DatePicker>(R.id.new_daily_report_form_date)
         val formTitle = findViewById<EditText>(R.id.new_daily_report_form_title)
         val formContent = findViewById<EditText>(R.id.new_daily_report_form_content)
-        findViewById<Button>(R.id.new_daily_report_button_submit).also {
-            it.setOnClickListener(
+
+        findViewById<Button>(R.id.new_daily_report_button_submit)
+                .setOnClickListener(
                     ButtonToSubmitClickListener(this, currentUser, formDate, formTitle, formContent)
-            )
-        }
-        findViewById<Button>(R.id.new_daily_report_button_to_back).also {
-            it.setOnClickListener(ButtonToBackClickListener(this))
-        }
+                )
+
+        findViewById<Button>(R.id.new_daily_report_button_to_back).setOnClickListener(ButtonToBackClickListener(this))
     }
 
     private class ButtonToSubmitClickListener(private val activity: Activity,
@@ -62,7 +61,7 @@ class NewDailyReportActivity : AppCompatActivity() {
 
             DailyReportRepository.create(currentUser, date, title, content)
 
-            this.activity.finish()
+            activity.finish()
         }
 
     }

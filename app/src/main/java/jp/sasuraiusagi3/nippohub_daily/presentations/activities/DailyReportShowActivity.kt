@@ -1,5 +1,6 @@
 package jp.sasuraiusagi3.nippohub_daily.presentations.activities
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -18,9 +19,7 @@ class DailyReportShowActivity : AppCompatActivity() {
         private const val DAILY_REPORT = "dailyReport"
 
         fun build(context: Context, dailyReport: DailyReport) =
-                Intent(context, DailyReportShowActivity::class.java).apply {
-                    this.putExtra(DailyReportShowActivity.DAILY_REPORT, dailyReport)
-                }
+                Intent(context, DailyReportShowActivity::class.java).putExtra(DAILY_REPORT, dailyReport)
     }
 
     override fun onStart() {
@@ -33,6 +32,7 @@ class DailyReportShowActivity : AppCompatActivity() {
         }
     }
 
+    @SuppressLint("SetJavaScriptEnabled")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_daily_report_show)
@@ -43,12 +43,9 @@ class DailyReportShowActivity : AppCompatActivity() {
             this.settings.javaScriptEnabled = true
             this.loadUrl("file:///android_asset/html/daily_report_show.html")
         }
-        findViewById<Button>(R.id.dailyReportShowButtonToEdit).also {
-            it.setOnClickListener(ButtonToEditClickListener(this, dailyReport))
-        }
-        findViewById<Button>(R.id.daily_report_show_button_to_back).also {
-            it.setOnClickListener(ButtonToBackClickListener(this))
-        }
+
+        findViewById<Button>(R.id.dailyReportShowButtonToEdit).setOnClickListener(ButtonToEditClickListener(this, dailyReport))
+        findViewById<Button>(R.id.daily_report_show_button_to_back).setOnClickListener(ButtonToBackClickListener(this))
     }
 
     private class WebClientForDailyReport(private val dailyReport: DailyReport) : WebViewClient() {
@@ -57,7 +54,7 @@ class DailyReportShowActivity : AppCompatActivity() {
 
             view ?: return
 
-            val title = "${dailyReport.date.toString()} ${dailyReport.title}".replace("'", "\\'")
+            val title = "${dailyReport.date} ${dailyReport.title}".replace("'", "\\'")
             val content = dailyReport.content
                     .replace("\\", "\\\\")
                     .replace("\n", "\\n")
@@ -73,7 +70,7 @@ class DailyReportShowActivity : AppCompatActivity() {
 
             intent.putExtra(EditDailyReportActivity.DAILY_REPORT, dailyReport)
 
-            this.context.startActivity(intent)
+            context.startActivity(intent)
         }
     }
 }

@@ -41,19 +41,16 @@ class DailyReportIndexActivity : AppCompatActivity() {
         viewPager.adapter = DailyReportListViewPagerAdapter(supportFragmentManager)
         tab.setupWithViewPager(viewPager)
 
-        findViewById<Button>(R.id.daily_report_index_button_to_new).also {
-            it.setOnClickListener(ButtonToNewClickListener(this))
-        }
-        findViewById<Button>(R.id.daily_report_index_button_to_settings).also {
-            it.setOnClickListener(ButtonToSettingsClickListener(this))
-        }
+        findViewById<Button>(R.id.daily_report_index_button_to_new).setOnClickListener(ButtonToNewClickListener(this))
+
+        findViewById<Button>(R.id.daily_report_index_button_to_settings).setOnClickListener(ButtonToSettingsClickListener(this))
     }
 
     private class ButtonToSettingsClickListener(private val context: Context) : View.OnClickListener {
         override fun onClick(v: View?) {
             val intent = SettingsActivity.build(context)
 
-            this.context.startActivity(intent)
+            context.startActivity(intent)
         }
     }
 
@@ -61,7 +58,7 @@ class DailyReportIndexActivity : AppCompatActivity() {
         override fun onClick(v: View?) {
             val intent = NewDailyReportActivity.build(context)
 
-            this.context.startActivity(intent)
+            context.startActivity(intent)
         }
     }
 

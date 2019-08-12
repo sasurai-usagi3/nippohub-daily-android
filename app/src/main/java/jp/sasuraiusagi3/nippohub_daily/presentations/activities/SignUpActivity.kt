@@ -35,17 +35,17 @@ class SignUpActivity : AppCompatActivity() {
         val formEmail = findViewById<EditText>(R.id.sign_up_form_email)
         val formPassword = findViewById<EditText>(R.id.sign_up_form_password)
         val formPasswordConfirmation = findViewById<EditText>(R.id.sign_up_form_password_confirmation)
-        findViewById<Button>(R.id.sign_up_button_submit).also {
-            it.setOnClickListener(
+
+        findViewById<Button>(R.id.sign_up_button_submit)
+                .setOnClickListener(
                     ButtonSubmitClickListener(this, formEmail, formPassword, formPasswordConfirmation)
-            )
-        }
-        findViewById<Button>(R.id.sign_up_button_to_privacy).also {
-            it.setOnClickListener(ButtonToPrivacyClickListener(this))
-        }
-        findViewById<Button>(R.id.sign_up_button_to_agreements).also {
-            it.setOnClickListener(ButtonToAgreementsClickListener(this))
-        }
+                )
+
+        findViewById<Button>(R.id.sign_up_button_to_privacy)
+                .setOnClickListener(ButtonToPrivacyClickListener(this))
+
+        findViewById<Button>(R.id.sign_up_button_to_agreements)
+                .setOnClickListener(ButtonToAgreementsClickListener(this))
     }
 
     private class ButtonSubmitClickListener(private val activity: Activity,
@@ -56,7 +56,7 @@ class SignUpActivity : AppCompatActivity() {
             if (formPassword.text.toString() != formPasswordConfirmation.text.toString()) {
                 val dialog = PasswordAuthErrorDialogFragment()
 
-                dialog.show(this.activity.fragmentManager, null)
+                dialog.show(activity.fragmentManager, null)
                 return
             }
 
@@ -70,8 +70,8 @@ class SignUpActivity : AppCompatActivity() {
 
                         val intent = DailyReportIndexActivity.build(activity)
 
-                        this.activity.startActivity(intent)
-                        this.activity.finish()
+                        activity.startActivity(intent)
+                        activity.finish()
                     },
                     {
                         val dialog = EmailAlreadyUserdErrorDialogFragment()
