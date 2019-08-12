@@ -52,13 +52,13 @@ class EditDailyReportActivity : AppCompatActivity() {
         val formContent = findViewById<EditText>(R.id.edit_daily_report_form_content).apply {
             this.setText(dailyReport.content)
         }
-        findViewById<Button>(R.id.edit_daily_report_button_submit).also {
-            it.setOnClickListener(
-                    ButtonToSubmitClickListener(this, currentUser, dailyReport, formDate, formTitle, formContent)
+        findViewById<Button>(R.id.edit_daily_report_button_submit).apply {
+            setOnClickListener(
+                    ButtonToSubmitClickListener(this@EditDailyReportActivity, currentUser, dailyReport, formDate, formTitle, formContent)
             )
         }
-        findViewById<Button>(R.id.edit_daily_report_button_to_back).also {
-            it.setOnClickListener(ButtonToBackClickListener(this))
+        findViewById<Button>(R.id.edit_daily_report_button_to_back).apply {
+            setOnClickListener(ButtonToBackClickListener(this@EditDailyReportActivity))
         }
     }
 

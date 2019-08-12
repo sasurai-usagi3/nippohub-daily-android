@@ -45,11 +45,11 @@ class DailyReportShowActivity : AppCompatActivity() {
             this.settings.javaScriptEnabled = true
             this.loadUrl("file:///android_asset/html/daily_report_show.html")
         }
-        findViewById<Button>(R.id.dailyReportShowButtonToEdit).also {
-            it.setOnClickListener(ButtonToEditClickListener(this, dailyReport))
+        findViewById<Button>(R.id.dailyReportShowButtonToEdit).apply {
+            setOnClickListener(ButtonToEditClickListener(this@DailyReportShowActivity, dailyReport))
         }
-        findViewById<Button>(R.id.daily_report_show_button_to_back).also {
-            it.setOnClickListener(ButtonToBackClickListener(this))
+        findViewById<Button>(R.id.daily_report_show_button_to_back).apply {
+            setOnClickListener(ButtonToBackClickListener(this@DailyReportShowActivity))
         }
     }
 

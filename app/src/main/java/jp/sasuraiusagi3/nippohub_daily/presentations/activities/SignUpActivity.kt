@@ -35,16 +35,17 @@ class SignUpActivity : AppCompatActivity() {
         val formEmail = findViewById<EditText>(R.id.sign_up_form_email)
         val formPassword = findViewById<EditText>(R.id.sign_up_form_password)
         val formPasswordConfirmation = findViewById<EditText>(R.id.sign_up_form_password_confirmation)
-        findViewById<Button>(R.id.sign_up_button_submit).also {
-            it.setOnClickListener(
-                    ButtonSubmitClickListener(this, formEmail, formPassword, formPasswordConfirmation)
+
+        findViewById<Button>(R.id.sign_up_button_submit).apply {
+            setOnClickListener(
+                    ButtonSubmitClickListener(this@SignUpActivity, formEmail, formPassword, formPasswordConfirmation)
             )
         }
-        findViewById<Button>(R.id.sign_up_button_to_privacy).also {
-            it.setOnClickListener(ButtonToPrivacyClickListener(this))
+        findViewById<Button>(R.id.sign_up_button_to_privacy).apply {
+            setOnClickListener(ButtonToPrivacyClickListener(this@SignUpActivity))
         }
-        findViewById<Button>(R.id.sign_up_button_to_agreements).also {
-            it.setOnClickListener(ButtonToAgreementsClickListener(this))
+        findViewById<Button>(R.id.sign_up_button_to_agreements).apply {
+            setOnClickListener(ButtonToAgreementsClickListener(this@SignUpActivity))
         }
     }
 

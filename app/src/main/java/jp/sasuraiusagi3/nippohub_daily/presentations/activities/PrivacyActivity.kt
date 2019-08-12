@@ -21,8 +21,8 @@ class PrivacyActivity : AppCompatActivity() {
         findViewById<WebView>(R.id.privacy_web_view).apply {
             this.loadUrl("https://nippohub.com/privacy_content.html")
         }
-        findViewById<Button>(R.id.privacy_button_to_back).also {
-            it.setOnClickListener(ButtonToBackClickListener(this))
+        findViewById<Button>(R.id.privacy_button_to_back).apply {
+            setOnClickListener(ButtonToBackClickListener(this@PrivacyActivity))
         }
     }
 }
