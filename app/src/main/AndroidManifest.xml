@@ -17,6 +17,7 @@
         <activity android:name="jp.sasuraiusagi3.nippohub_daily.presentations.activities.EditDailyReportActivity" />
         <activity android:name="jp.sasuraiusagi3.nippohub_daily.presentations.activities.PrivacyActivity" />
         <activity android:name="jp.sasuraiusagi3.nippohub_daily.presentations.activities.AgreementsActivity" />
+        <activity android:name="jp.sasuraiusagi3.nippohub_daily.presentations.activities.PostDailyReportActivity" />
         <activity android:name="jp.sasuraiusagi3.nippohub_daily.presentations.activities.LaunchActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
