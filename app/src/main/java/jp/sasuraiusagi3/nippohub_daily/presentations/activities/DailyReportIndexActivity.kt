@@ -56,7 +56,7 @@ class DailyReportIndexActivity : AppCompatActivity() {
 
     private class ButtonToNewClickListener(private val context: Context) : View.OnClickListener {
         override fun onClick(v: View?) {
-            val intent = NewDailyReportActivity.build(context)
+            val intent = PostDailyReportActivity.build(context)
 
             context.startActivity(intent)
         }
