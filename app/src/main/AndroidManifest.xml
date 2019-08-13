@@ -12,11 +12,10 @@
         <activity android:name="jp.sasuraiusagi3.nippohub_daily.presentations.activities.DailyReportIndexActivity" />
         <activity android:name="jp.sasuraiusagi3.nippohub_daily.presentations.activities.SignInActivity" />
         <activity android:name="jp.sasuraiusagi3.nippohub_daily.presentations.activities.SignUpActivity" />
-        <activity android:name="jp.sasuraiusagi3.nippohub_daily.presentations.activities.NewDailyReportActivity" />
         <activity android:name="jp.sasuraiusagi3.nippohub_daily.presentations.activities.DailyReportShowActivity" />
-        <activity android:name="jp.sasuraiusagi3.nippohub_daily.presentations.activities.EditDailyReportActivity" />
         <activity android:name="jp.sasuraiusagi3.nippohub_daily.presentations.activities.PrivacyActivity" />
         <activity android:name="jp.sasuraiusagi3.nippohub_daily.presentations.activities.AgreementsActivity" />
+        <activity android:name="jp.sasuraiusagi3.nippohub_daily.presentations.activities.PostDailyReportActivity" />
         <activity android:name="jp.sasuraiusagi3.nippohub_daily.presentations.activities.LaunchActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

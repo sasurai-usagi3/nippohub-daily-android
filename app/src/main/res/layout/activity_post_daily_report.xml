@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".presentations.activities.NewDailyReportActivity">
+    tools:context=".presentations.activities.EditDailyReportActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
@@ -13,7 +13,7 @@
         android:minHeight="?attr/actionBarSize">
 
         <Button
-            android:id="@+id/new_daily_report_button_to_back"
+            android:id="@+id/post_daily_report_button_to_back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
@@ -41,7 +41,7 @@
                 android:textSize="16sp" />
 
             <DatePicker
-                android:id="@+id/new_daily_report_form_date"
+                android:id="@+id/post_daily_report_form_date"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:calendarViewShown="false"
@@ -51,37 +51,40 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="@string/dailyReportTitle"
-                android:textSize="16sp" />
+                android:text="@string/dailyReportTitle" />
 
             <EditText
-                android:id="@+id/new_daily_report_form_title"
+                android:id="@+id/post_daily_report_form_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:importantForAutofill="no"
                 android:inputType="text"
-                android:maxLines="1" />
+                android:maxLines="1"
+                tools:ignore="LabelFor" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="@string/dailyReportContent"
-                android:textSize="16sp" />
+                android:text="@string/dailyReportContent" />
 
             <EditText
-                android:id="@+id/new_daily_report_form_content"
+                android:id="@+id/post_daily_report_form_content"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:importantForAutofill="no"
+                tools:ignore="LabelFor,TextFields" />
 
             <Button
-                android:id="@+id/new_daily_report_button_submit"
+                android:id="@+id/post_daily_report_button_submit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="40dp"
                 android:background="@color/colorOK"
-                android:text="@string/create"
+                android:text="@string/update"
                 android:textSize="16sp" />
         </LinearLayout>
+
     </ScrollView>
 
 </LinearLayout>

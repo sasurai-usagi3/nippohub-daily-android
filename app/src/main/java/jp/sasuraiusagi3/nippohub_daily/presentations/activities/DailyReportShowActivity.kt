@@ -66,9 +66,7 @@ class DailyReportShowActivity : AppCompatActivity() {
 
     private class ButtonToEditClickListener(private val context: Context, private val dailyReport: DailyReport) : View.OnClickListener {
         override fun onClick(v: View?) {
-            val intent = Intent(this.context, EditDailyReportActivity::class.java)
-
-            intent.putExtra(EditDailyReportActivity.DAILY_REPORT, dailyReport)
+            val intent = PostDailyReportActivity.build(context, dailyReport)
 
             context.startActivity(intent)
         }
