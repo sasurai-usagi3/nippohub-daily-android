@@ -80,8 +80,12 @@ class PostDailyReportActivity : AppCompatActivity() {
                         title = formTitle.text.toString(),
                         content = formContent.text.toString()
                 )
+                val intent = Intent()
 
                 DailyReportRepository.update(currentUser, dailyReport)
+
+                intent.putExtra(DailyReportShowActivity.DAILY_REPORT, dailyReport)
+                activity.setResult(Activity.RESULT_OK, intent)
             } else {
                 DailyReportRepository.create(currentUser, date, title, content)
             }
