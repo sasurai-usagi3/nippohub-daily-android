@@ -1,14 +1,15 @@
 package jp.sasuraiusagi3.nippohub_daily.presentations.activities
 
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.Button
+import androidx.appcompat.app.AppCompatActivity
 import jp.sasuraiusagi3.nippohub_daily.R
 import jp.sasuraiusagi3.nippohub_daily.listeners.ButtonToBackClickListener
 import jp.sasuraiusagi3.nippohub_daily.models.DailyReport
@@ -16,7 +17,7 @@ import jp.sasuraiusagi3.nippohub_daily.repositories.UserRepository
 
 class DailyReportShowActivity : AppCompatActivity() {
     companion object {
-        private const val DAILY_REPORT = "dailyReport"
+        const val DAILY_REPORT = "dailyReport"
 
         fun build(context: Context, dailyReport: DailyReport) =
                 Intent(context, DailyReportShowActivity::class.java).putExtra(DAILY_REPORT, dailyReport)
@@ -32,20 +33,33 @@ class DailyReportShowActivity : AppCompatActivity() {
         }
     }
 
-    @SuppressLint("SetJavaScriptEnabled")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_daily_report_show)
 
-        val dailyReport = this.intent.getSerializableExtra(DAILY_REPORT) as DailyReport
-        findViewById<WebView>(R.id.daily_report_show_web_view).apply {
-            this.webViewClient = WebClientForDailyReport(dailyReport)
-            this.settings.javaScriptEnabled = true
-            this.loadUrl("file:///android_asset/html/daily_report_show.html")
-        }
-
-        findViewById<Button>(R.id.dailyReportShowButtonToEdit).setOnClickListener(ButtonToEditClickListener(this, dailyReport))
+        val dailyReport = intent.getSerializableExtra(DAILY_REPORT) as DailyReport
+        setDailyReport(dailyReport)
         findViewById<Button>(R.id.daily_report_show_button_to_back).setOnClickListener(ButtonToBackClickListener(this))
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        data ?: return
+
+        val dailyReport = data.getSerializableExtra(DAILY_REPORT) as DailyReport
+        setDailyReport(dailyReport)
+    }
+
+    @SuppressLint("SetJavaScriptEnabled")
+    private fun setDailyReport(dailyReport: DailyReport) {
+
+        findViewById<WebView>(R.id.daily_report_show_web_view).apply {
+            webViewClient = WebClientForDailyReport(dailyReport)
+            settings.javaScriptEnabled = true
+            loadUrl("file:///android_asset/html/daily_report_show.html")
+        }
+        findViewById<Button>(R.id.dailyReportShowButtonToEdit).setOnClickListener(ButtonToEditClickListener(this, dailyReport))
     }
 
     private class WebClientForDailyReport(private val dailyReport: DailyReport) : WebViewClient() {
@@ -64,11 +78,11 @@ class DailyReportShowActivity : AppCompatActivity() {
         }
     }
 
-    private class ButtonToEditClickListener(private val context: Context, private val dailyReport: DailyReport) : View.OnClickListener {
+    private class ButtonToEditClickListener(private val activity: Activity, private val dailyReport: DailyReport) : View.OnClickListener {
         override fun onClick(v: View?) {
-            val intent = PostDailyReportActivity.build(context, dailyReport)
+            val intent = PostDailyReportActivity.build(activity, dailyReport)
 
-            context.startActivity(intent)
+            activity.startActivityForResult(intent, 0)
         }
     }
 }
