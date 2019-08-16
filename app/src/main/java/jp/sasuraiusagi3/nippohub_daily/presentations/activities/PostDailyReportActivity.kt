@@ -9,10 +9,10 @@ import android.widget.Button
 import android.widget.DatePicker
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
-import com.google.firebase.auth.FirebaseUser
 import jp.sasuraiusagi3.nippohub_daily.R
 import jp.sasuraiusagi3.nippohub_daily.listeners.ButtonToBackClickListener
 import jp.sasuraiusagi3.nippohub_daily.models.DailyReport
+import jp.sasuraiusagi3.nippohub_daily.models.User
 import jp.sasuraiusagi3.nippohub_daily.repositories.DailyReportRepository
 import jp.sasuraiusagi3.nippohub_daily.repositories.UserRepository
 import java.time.LocalDate
@@ -63,7 +63,7 @@ class PostDailyReportActivity : AppCompatActivity() {
     }
 
     private class ButtonToSubmitClickListener(private val activity: Activity,
-                                              private val currentUser: FirebaseUser,
+                                              private val currentUser: User,
                                               private val dailyReport: DailyReport?,
                                               private val formDate: DatePicker,
                                               private val formTitle: EditText,

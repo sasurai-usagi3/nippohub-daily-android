@@ -1,11 +1,11 @@
 package jp.sasuraiusagi3.nippohub_daily.repositories
 
-import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import jp.sasuraiusagi3.nippohub_daily.models.DailyReport
+import jp.sasuraiusagi3.nippohub_daily.models.User
 import java.time.LocalDate
 import java.time.format.DateTimeParseException
 
@@ -23,9 +23,9 @@ object DailyReportRepository {
      * @param user ユーザ
      * @param limit 最大値
      */
-    fun fetch(user: FirebaseUser, gteq_date: LocalDate? = null, lteq_date: LocalDate? = null, limit: Int = 30, callBackFun: FetchDailyReportsCallBackFun) {
+    fun fetch(user: User, gteq_date: LocalDate? = null, lteq_date: LocalDate? = null, limit: Int = 30, callBackFun: FetchDailyReportsCallBackFun) {
         this.instance
-                .getReference("/users/${user.uid}/daily_reports")
+                .getReference("/users/${user.id}/daily_reports")
                 .orderByChild("date")
                 .let {
                     if (gteq_date != null) {
@@ -53,8 +53,8 @@ object DailyReportRepository {
      * @param title タイトル
      * @param content 内容
      */
-    fun create(user: FirebaseUser, date: LocalDate, title: String, content: String) {
-        val ref = this.instance.getReference("/users/${user.uid}/daily_reports").push()
+    fun create(user: User, date: LocalDate, title: String, content: String) {
+        val ref = this.instance.getReference("/users/${user.id}/daily_reports").push()
 
         ref.setValue(
                 mapOf(
@@ -72,9 +72,9 @@ object DailyReportRepository {
      * @param user ユーザ
      * @param dailyReport 日報
      */
-    fun update(user: FirebaseUser, dailyReport: DailyReport) {
+    fun update(user: User, dailyReport: DailyReport) {
         this.instance
-                .getReference("/users/${user.uid}/daily_reports/${dailyReport.id}")
+                .getReference("/users/${user.id}/daily_reports/${dailyReport.id}")
                 .setValue(
                         mapOf(
                                 "date" to dailyReport.date.toString(),
