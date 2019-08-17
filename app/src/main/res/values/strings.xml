@@ -19,6 +19,7 @@
     <string name="agreements">利用規約</string>
     <string name="signUpNotion">サインアップすると利用規約とプライバシーポリシーに同意したことになります。</string>
     <string name="dummyDailyReportTitle">20xx-xx-xx 今日はいい日だった</string>
+    <string name="dailyReportTitleWithDate">%s %s</string>
     <string-array name="settings">
         <item>利用規約</item>
         <item>プライバシーポリシー</item>
