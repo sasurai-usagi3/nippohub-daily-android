@@ -84,6 +84,23 @@ object DailyReportRepository {
                 )
     }
 
+    /**
+     * 指定したユーザの指定した日報のアクセスキーを更新する
+     *
+     * @param user
+     * @param dailyReport
+     * @param accessKey
+     */
+    fun updateAccessKey(user: User, dailyReport: DailyReport, accessKey: String?) {
+        instance
+                .getReference("/users/${user.id}/daily_reports/${dailyReport.id}")
+                .setValue(
+                        mapOf(
+                                "access_key" to accessKey
+                        )
+                )
+    }
+
     private class DailyReportIndexFetcher(private val callBackFun: FetchDailyReportsCallBackFun) : ValueEventListener {
         override fun onDataChange(p0: DataSnapshot) {
             val dailyReports = p0.children.map {
