@@ -13,15 +13,9 @@ import jp.sasuraiusagi3.nippohub_daily.models.DailyReport
  * Created by sasurai-usagi3 on 2019/04/30.
  */
 
-class DailyReportListAdapter : BaseAdapter {
-    private val context: Context
-    private val inflater: LayoutInflater
+class DailyReportListAdapter(context: Context) : BaseAdapter() {
+    private val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
     var dailyReports: List<DailyReport> = emptyList()
-
-    constructor(context: Context) {
-        this.context = context
-        inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-    }
 
     override fun getCount(): Int = dailyReports.count()
 
