@@ -20,7 +20,7 @@ class DailyReportListAdapter : BaseAdapter {
 
     constructor(context: Context) {
         this.context = context
-        this.inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+        inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
     }
 
     override fun getCount(): Int = dailyReports.count()
@@ -31,7 +31,7 @@ class DailyReportListAdapter : BaseAdapter {
 
     override fun getView(p0: Int, p1: View?, p2: ViewGroup?): View {
         val dailyReport = dailyReports[p0]
-        val view = p1 ?: this.inflater.inflate(R.layout.view_daily_report_list_item, p2, false)
+        val view = p1 ?: inflater.inflate(R.layout.view_daily_report_list_item, p2, false)
 
         view.findViewById<TextView>(R.id.daily_report_list_item_title).text = "${dailyReport.date.toString()} ${dailyReport.title}"
 

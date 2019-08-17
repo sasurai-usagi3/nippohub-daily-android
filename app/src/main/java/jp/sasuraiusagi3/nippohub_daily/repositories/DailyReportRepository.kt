@@ -24,7 +24,7 @@ object DailyReportRepository {
      * @param limit 最大値
      */
     fun fetch(user: User, gteq_date: LocalDate? = null, lteq_date: LocalDate? = null, limit: Int = 30, callBackFun: FetchDailyReportsCallBackFun) {
-        this.instance
+        instance
                 .getReference("/users/${user.id}/daily_reports")
                 .orderByChild("date")
                 .let {
@@ -54,7 +54,7 @@ object DailyReportRepository {
      * @param content 内容
      */
     fun create(user: User, date: LocalDate, title: String, content: String) {
-        val ref = this.instance.getReference("/users/${user.id}/daily_reports").push()
+        val ref = instance.getReference("/users/${user.id}/daily_reports").push()
 
         ref.setValue(
                 mapOf(
@@ -73,7 +73,7 @@ object DailyReportRepository {
      * @param dailyReport 日報
      */
     fun update(user: User, dailyReport: DailyReport) {
-        this.instance
+        instance
                 .getReference("/users/${user.id}/daily_reports/${dailyReport.id}")
                 .setValue(
                         mapOf(
@@ -100,7 +100,7 @@ object DailyReportRepository {
                 )
             }.sortedBy { it.date }.reversed()
 
-            this.callBackFun(dailyReports)
+            callBackFun(dailyReports)
         }
 
         override fun onCancelled(p0: DatabaseError) {}
