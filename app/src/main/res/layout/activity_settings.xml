@@ -18,14 +18,14 @@
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
             android:text="@string/back"
-            android:textColor="@color/colorLink" />
+            android:textColor="@color/color_link" />
     </androidx.appcompat.widget.Toolbar>
 
     <ListView
         android:id="@+id/settings_list_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:divider="@color/colorDivider"
+        android:divider="@color/color_divider"
         android:dividerHeight="1sp"
         android:entries="@array/settings" />
 </LinearLayout>

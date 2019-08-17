@@ -63,7 +63,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
-            android:background="@color/colorOK"
+            android:background="@color/color_ok"
             android:text="@string/sign_up"
             android:textSize="16sp" />
 
@@ -76,7 +76,7 @@
             android:layout_marginTop="20dp"
             android:background="@android:color/transparent"
             android:text="@string/agreements"
-            android:textColor="@color/colorLink" />
+            android:textColor="@color/color_link" />
 
         <Button
             android:id="@+id/sign_up_button_to_privacy"
@@ -86,6 +86,6 @@
             android:layout_marginStart="8dp"
             android:background="@android:color/transparent"
             android:text="@string/privacy"
-            android:textColor="@color/colorLink" />
+            android:textColor="@color/color_link" />
     </LinearLayout>
 </ScrollView>

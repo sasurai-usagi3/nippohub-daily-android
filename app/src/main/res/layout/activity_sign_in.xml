@@ -40,7 +40,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
-        android:background="@color/colorOK"
+        android:background="@color/color_ok"
         android:text="@string/sign_in"
         android:textSize="16sp" />
 
@@ -49,7 +49,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:background="@color/colorSignUp"
+        android:background="@color/color_sign_up"
         android:text="@string/to_sign_up"
         android:textSize="16sp" />
 </LinearLayout>

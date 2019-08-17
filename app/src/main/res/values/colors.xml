@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#f9f9f9</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
-    <color name="colorLink">#4087F7</color>
-    <color name="colorOK">#97C9FF</color>
-    <color name="colorSignUp">#9BFFA6</color>
-    <color name="colorBackground">#ffffff</color>
-    <color name="colorTextMain">#414141</color>
-    <color name="colorDivider">#dcdcdc</color>
+    <color name="color_primary">#f9f9f9</color>
+    <color name="color_primary_dark">#303F9F</color>
+    <color name="color_accent">#FF4081</color>
+    <color name="color_link">#4087F7</color>
+    <color name="color_ok">#97C9FF</color>
+    <color name="color_sign_up">#9BFFA6</color>
+    <color name="color_background">#ffffff</color>
+    <color name="color_text_main">#414141</color>
+    <color name="color_divider">#dcdcdc</color>
 </resources>
