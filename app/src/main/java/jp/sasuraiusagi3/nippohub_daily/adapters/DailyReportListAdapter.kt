@@ -28,7 +28,7 @@ class DailyReportListAdapter(private val context: Context) : BaseAdapter() {
         val view = p1 ?: inflater.inflate(R.layout.view_daily_report_list_item, p2, false)
 
         view.findViewById<TextView>(R.id.daily_report_list_item_title).text =
-                context.getString(R.string.dailyReportTitleWithDate, dailyReport.date, dailyReport.title)
+                context.getString(R.string.daily_report_list_title, dailyReport.date, dailyReport.title)
 
         return view
     }

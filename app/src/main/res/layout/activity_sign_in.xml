@@ -13,7 +13,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/userEmail"
+        android:text="@string/user_email"
         android:textSize="16sp" />
 
     <EditText
@@ -26,7 +26,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="@string/userPassword"
+        android:text="@string/user_password"
         android:textSize="16sp" />
 
     <EditText
@@ -41,7 +41,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
         android:background="@color/colorOK"
-        android:text="@string/signIn"
+        android:text="@string/sign_in"
         android:textSize="16sp" />
 
     <Button
@@ -50,6 +50,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:background="@color/colorSignUp"
-        android:text="@string/toSignUp"
+        android:text="@string/to_sign_up"
         android:textSize="16sp" />
 </LinearLayout>

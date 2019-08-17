@@ -19,7 +19,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
-            android:text="@string/userEmail" />
+            android:text="@string/user_email" />
 
         <EditText
             android:id="@+id/sign_up_form_email"
@@ -31,7 +31,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
-            android:text="@string/userPassword" />
+            android:text="@string/user_password" />
 
         <EditText
             android:id="@+id/sign_up_form_password"
@@ -43,7 +43,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
-            android:text="@string/userPasswordConfirmation" />
+            android:text="@string/user_password_confirmation" />
 
         <EditText
             android:id="@+id/sign_up_form_password_confirmation"
@@ -55,7 +55,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="@string/signUpNotion"
+            android:text="@string/sign_up_notion"
             android:textSize="12sp" />
 
         <Button
@@ -64,7 +64,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
             android:background="@color/colorOK"
-            android:text="@string/signUp"
+            android:text="@string/sign_up"
             android:textSize="16sp" />
 
         <Button
