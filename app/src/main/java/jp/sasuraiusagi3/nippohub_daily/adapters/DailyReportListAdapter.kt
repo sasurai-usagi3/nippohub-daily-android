@@ -13,7 +13,7 @@ import jp.sasuraiusagi3.nippohub_daily.models.DailyReport
  * Created by sasurai-usagi3 on 2019/04/30.
  */
 
-class DailyReportListAdapter(context: Context) : BaseAdapter() {
+class DailyReportListAdapter(private val context: Context) : BaseAdapter() {
     private val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
     var dailyReports: List<DailyReport> = emptyList()
 
@@ -27,7 +27,8 @@ class DailyReportListAdapter(context: Context) : BaseAdapter() {
         val dailyReport = dailyReports[p0]
         val view = p1 ?: inflater.inflate(R.layout.view_daily_report_list_item, p2, false)
 
-        view.findViewById<TextView>(R.id.daily_report_list_item_title).text = "${dailyReport.date} ${dailyReport.title}"
+        view.findViewById<TextView>(R.id.daily_report_list_item_title).text =
+                context.getString(R.string.dailyReportTitleWithDate, dailyReport.date, dailyReport.title)
 
         return view
     }
