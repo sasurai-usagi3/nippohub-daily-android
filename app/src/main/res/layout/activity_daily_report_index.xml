@@ -26,15 +26,15 @@
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
                 android:text="@string/setting"
-                android:textColor="@color/colorLink" />
+                android:textColor="@color/color_link" />
 
             <Button
                 android:id="@+id/daily_report_index_button_to_new"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
-                android:text="@string/newDailyReport"
-                android:textColor="@color/colorLink" />
+                android:text="@string/new_daily_report"
+                android:textColor="@color/color_link" />
         </LinearLayout>
     </androidx.appcompat.widget.Toolbar>
 

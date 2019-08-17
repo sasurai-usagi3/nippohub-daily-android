@@ -9,6 +9,6 @@
         android:id="@+id/daily_report_list_table_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:divider="@color/colorDivider"
+        android:divider="@color/color_divider"
         android:dividerHeight="1sp" />
 </FrameLayout>

@@ -18,7 +18,7 @@
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
             android:text="@string/back"
-            android:textColor="@color/colorLink" />
+            android:textColor="@color/color_link" />
 
         <Button
             android:id="@+id/dailyReportShowButtonToEdit"
@@ -26,8 +26,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="right"
             android:background="@android:color/transparent"
-            android:text="@string/editDailyReport"
-            android:textColor="@color/colorLink"
+            android:text="@string/edit_daily_report"
+            android:textColor="@color/color_link"
             tools:ignore="RtlHardcoded" />
 
     </androidx.appcompat.widget.Toolbar>

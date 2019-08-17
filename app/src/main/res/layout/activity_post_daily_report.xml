@@ -18,7 +18,7 @@
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
             android:text="@string/back"
-            android:textColor="@color/colorLink" />
+            android:textColor="@color/color_link" />
     </androidx.appcompat.widget.Toolbar>
 
     <ScrollView
@@ -37,7 +37,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/dailyReportDate"
+                android:text="@string/daily_report_date"
                 android:textSize="16sp" />
 
             <DatePicker
@@ -51,7 +51,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="@string/dailyReportTitle" />
+                android:text="@string/daily_report_title" />
 
             <EditText
                 android:id="@+id/post_daily_report_form_title"
@@ -66,7 +66,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="@string/dailyReportContent" />
+                android:text="@string/daily_report_content" />
 
             <EditText
                 android:id="@+id/post_daily_report_form_content"
@@ -80,7 +80,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="40dp"
-                android:background="@color/colorOK"
+                android:background="@color/color_ok"
                 android:text="@string/update"
                 android:textSize="16sp" />
         </LinearLayout>
