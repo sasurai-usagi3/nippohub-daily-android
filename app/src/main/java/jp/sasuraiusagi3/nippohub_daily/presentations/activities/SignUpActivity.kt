@@ -53,7 +53,10 @@ class SignUpActivity : AppCompatActivity() {
                                             private val formPasswordConfirmation: EditText) : View.OnClickListener {
         override fun onClick(v: View?) {
             if (formPassword.text.toString() != formPasswordConfirmation.text.toString()) {
-                val dialog = OkOnlyDialogFragment.build("認証エラー", "入力されたパスワードが一致しません。")
+                val dialog = OkOnlyDialogFragment.build(
+                        activity.getString(R.string.dialog_title_auth_error),
+                        activity.getString(R.string.dialog_message_not_same_password_with_confirmation)
+                )
 
                 dialog.show(activity.supportFragmentManager, null)
                 return
@@ -73,7 +76,10 @@ class SignUpActivity : AppCompatActivity() {
                         activity.finish()
                     },
                     {
-                        val dialog = OkOnlyDialogFragment.build("認証エラー", "入力されたメールアドレスは登録ずみです。")
+                        val dialog = OkOnlyDialogFragment.build(
+                                activity.getString(R.string.dialog_title_auth_error),
+                                activity.getString(R.string.dialog_message_email_already_used)
+                        )
 
                         dialog.show(activity.supportFragmentManager, null)
                     }

@@ -65,7 +65,10 @@ class SignInActivity : AppCompatActivity() {
                     },
                     {
                         // TODO: ネットワークエラーとわけたい
-                        val dialog = OkOnlyDialogFragment.build("認証エラー", "パスワードが違います。")
+                        val dialog = OkOnlyDialogFragment.build(
+                                activity.getString(R.string.dialog_title_auth_error),
+                                activity.getString(R.string.dialog_message_wrong_password)
+                        )
 
                         dialog.show(activity.supportFragmentManager, null)
                     }

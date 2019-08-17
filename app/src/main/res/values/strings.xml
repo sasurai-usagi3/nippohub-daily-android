@@ -20,6 +20,11 @@
     <string name="signUpNotion">サインアップすると利用規約とプライバシーポリシーに同意したことになります。</string>
     <string name="dummyDailyReportTitle">20xx-xx-xx 今日はいい日だった</string>
     <string name="dailyReportTitleWithDate">%s %s</string>
+    <string name="dialog_ok">OK</string>
+    <string name="dialog_title_auth_error">認証エラー</string>
+    <string name="dialog_message_wrong_password">パスワードが違います。</string>
+    <string name="dialog_message_not_same_password_with_confirmation">入力したパスワードが一致しません。</string>
+    <string name="dialog_message_email_already_used">入力されたEmailはすでに登録されています。</string>
     <string-array name="settings">
         <item>利用規約</item>
         <item>プライバシーポリシー</item>
