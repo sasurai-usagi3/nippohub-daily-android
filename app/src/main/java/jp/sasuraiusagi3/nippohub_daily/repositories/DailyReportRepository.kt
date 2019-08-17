@@ -96,7 +96,8 @@ object DailyReportRepository {
                             LocalDate.now()
                         },
                         it.child("title").value as String,
-                        it.child("content").value as String
+                        it.child("content").value as String,
+                        ""
                 )
             }.sortedBy { it.date }.reversed()
 
