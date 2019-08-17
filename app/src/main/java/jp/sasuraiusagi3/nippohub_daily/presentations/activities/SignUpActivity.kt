@@ -1,16 +1,15 @@
 package jp.sasuraiusagi3.nippohub_daily.presentations.activities
 
-import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.FragmentActivity
 import jp.sasuraiusagi3.nippohub_daily.R
-import jp.sasuraiusagi3.nippohub_daily.presentations.fragments.dialogs.EmailAlreadyUserdErrorDialogFragment
-import jp.sasuraiusagi3.nippohub_daily.presentations.fragments.dialogs.PasswordAuthErrorDialogFragment
+import jp.sasuraiusagi3.nippohub_daily.presentations.fragments.OkOnlyDialogFragment
 import jp.sasuraiusagi3.nippohub_daily.repositories.UserRepository
 
 class SignUpActivity : AppCompatActivity() {
@@ -48,15 +47,18 @@ class SignUpActivity : AppCompatActivity() {
                 .setOnClickListener(ButtonToAgreementsClickListener(this))
     }
 
-    private class ButtonSubmitClickListener(private val activity: Activity,
+    private class ButtonSubmitClickListener(private val activity: FragmentActivity,
                                             private val formEmail: EditText,
                                             private val formPassword: EditText,
                                             private val formPasswordConfirmation: EditText) : View.OnClickListener {
         override fun onClick(v: View?) {
             if (formPassword.text.toString() != formPasswordConfirmation.text.toString()) {
-                val dialog = PasswordAuthErrorDialogFragment()
+                val dialog = OkOnlyDialogFragment.build(
+                        activity.getString(R.string.dialog_title_auth_error),
+                        activity.getString(R.string.dialog_message_not_same_password_with_confirmation)
+                )
 
-                dialog.show(activity.fragmentManager, null)
+                dialog.show(activity.supportFragmentManager, null)
                 return
             }
 
@@ -74,9 +76,12 @@ class SignUpActivity : AppCompatActivity() {
                         activity.finish()
                     },
                     {
-                        val dialog = EmailAlreadyUserdErrorDialogFragment()
+                        val dialog = OkOnlyDialogFragment.build(
+                                activity.getString(R.string.dialog_title_auth_error),
+                                activity.getString(R.string.dialog_message_email_already_used)
+                        )
 
-                        dialog.show(this.activity.fragmentManager, null)
+                        dialog.show(activity.supportFragmentManager, null)
                     }
             )
         }
