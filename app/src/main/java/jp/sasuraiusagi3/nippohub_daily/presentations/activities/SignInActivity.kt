@@ -1,13 +1,13 @@
 package jp.sasuraiusagi3.nippohub_daily.presentations.activities
 
-import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.FragmentActivity
 import jp.sasuraiusagi3.nippohub_daily.R
 import jp.sasuraiusagi3.nippohub_daily.presentations.fragments.dialogs.PasswordAuthErrorDialogFragment
 import jp.sasuraiusagi3.nippohub_daily.repositories.UserRepository
@@ -45,7 +45,7 @@ class SignInActivity : AppCompatActivity() {
     override fun onBackPressed() {
     }
 
-    private class ButtonSubmitClickListener(private val activity: Activity,
+    private class ButtonSubmitClickListener(private val activity: FragmentActivity,
                                             private val formEmail: EditText,
                                             private val formPassword: EditText) : View.OnClickListener {
         override fun onClick(v: View?) {
@@ -67,13 +67,13 @@ class SignInActivity : AppCompatActivity() {
                         // TODO: ネットワークエラーとわけたい
                         val dialog = PasswordAuthErrorDialogFragment()
 
-                        dialog.show(activity.fragmentManager, null)
+                        dialog.show(activity.supportFragmentManager, null)
                     }
             )
         }
     }
 
-    private class ButtonToSignUpClickListener(private val activity: Activity) : View.OnClickListener {
+    private class ButtonToSignUpClickListener(private val activity: FragmentActivity) : View.OnClickListener {
         override fun onClick(v: View?) {
             val intent = SignUpActivity.build(activity)
 

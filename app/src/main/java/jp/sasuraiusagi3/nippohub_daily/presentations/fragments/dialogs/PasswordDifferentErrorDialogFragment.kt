@@ -2,8 +2,8 @@ package jp.sasuraiusagi3.nippohub_daily.presentations.fragments.dialogs
 
 import android.app.AlertDialog
 import android.app.Dialog
-import android.app.DialogFragment
 import android.os.Bundle
+import androidx.fragment.app.DialogFragment
 
 /**
  * Created by sasurai-usagi3 on 2019/05/14.
