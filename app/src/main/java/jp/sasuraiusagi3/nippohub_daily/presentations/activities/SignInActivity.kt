@@ -9,7 +9,7 @@ import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentActivity
 import jp.sasuraiusagi3.nippohub_daily.R
-import jp.sasuraiusagi3.nippohub_daily.presentations.fragments.dialogs.PasswordAuthErrorDialogFragment
+import jp.sasuraiusagi3.nippohub_daily.presentations.fragments.OkOnlyDialogFragment
 import jp.sasuraiusagi3.nippohub_daily.repositories.UserRepository
 
 class SignInActivity : AppCompatActivity() {
@@ -65,7 +65,7 @@ class SignInActivity : AppCompatActivity() {
                     },
                     {
                         // TODO: ネットワークエラーとわけたい
-                        val dialog = PasswordAuthErrorDialogFragment()
+                        val dialog = OkOnlyDialogFragment.build("認証エラー", "パスワードが違います。")
 
                         dialog.show(activity.supportFragmentManager, null)
                     }

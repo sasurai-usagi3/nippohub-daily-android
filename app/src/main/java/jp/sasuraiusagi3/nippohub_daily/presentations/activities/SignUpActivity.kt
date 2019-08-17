@@ -9,8 +9,7 @@ import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentActivity
 import jp.sasuraiusagi3.nippohub_daily.R
-import jp.sasuraiusagi3.nippohub_daily.presentations.fragments.dialogs.EmailAlreadyUserdErrorDialogFragment
-import jp.sasuraiusagi3.nippohub_daily.presentations.fragments.dialogs.PasswordAuthErrorDialogFragment
+import jp.sasuraiusagi3.nippohub_daily.presentations.fragments.OkOnlyDialogFragment
 import jp.sasuraiusagi3.nippohub_daily.repositories.UserRepository
 
 class SignUpActivity : AppCompatActivity() {
@@ -54,7 +53,7 @@ class SignUpActivity : AppCompatActivity() {
                                             private val formPasswordConfirmation: EditText) : View.OnClickListener {
         override fun onClick(v: View?) {
             if (formPassword.text.toString() != formPasswordConfirmation.text.toString()) {
-                val dialog = PasswordAuthErrorDialogFragment()
+                val dialog = OkOnlyDialogFragment.build("認証エラー", "入力されたパスワードが一致しません。")
 
                 dialog.show(activity.supportFragmentManager, null)
                 return
@@ -74,7 +73,7 @@ class SignUpActivity : AppCompatActivity() {
                         activity.finish()
                     },
                     {
-                        val dialog = EmailAlreadyUserdErrorDialogFragment()
+                        val dialog = OkOnlyDialogFragment.build("認証エラー", "入力されたメールアドレスは登録ずみです。")
 
                         dialog.show(activity.supportFragmentManager, null)
                     }
