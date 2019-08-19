@@ -12,9 +12,11 @@ object DailyReportShareUseCase {
      * @param user
      * @param dailyReport
      */
-    fun share(user: User, dailyReport: DailyReport) {
+    fun share(user: User, dailyReport: DailyReport): String {
         val accessKey = AccessKeyRepository.create(user, dailyReport)
         DailyReportRepository.updateAccessKey(user, dailyReport, accessKey.id)
+
+        return accessKey.id
     }
 
     /**
