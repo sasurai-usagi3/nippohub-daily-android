@@ -32,6 +32,11 @@
 
     </androidx.appcompat.widget.Toolbar>
 
+    <jp.sasuraiusagi3.nippohub_daily.presentations.views.DailyReportShareURL
+        android:id="@+id/daily_report_show_share_url"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
     <WebView
         android:id="@+id/daily_report_show_web_view"
         android:layout_width="match_parent"
