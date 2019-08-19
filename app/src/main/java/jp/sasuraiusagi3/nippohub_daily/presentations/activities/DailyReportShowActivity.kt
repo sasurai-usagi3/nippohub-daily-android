@@ -17,6 +17,7 @@ import jp.sasuraiusagi3.nippohub_daily.presentations.views.DailyReportShareURL
 import jp.sasuraiusagi3.nippohub_daily.repositories.UserRepository
 
 class DailyReportShowActivity : AppCompatActivity() {
+    lateinit var shareUrlView: DailyReportShareURL
     private var dailyReport: DailyReport? = null
         @SuppressLint("SetJavaScriptEnabled")
         set(value) {
@@ -30,6 +31,7 @@ class DailyReportShowActivity : AppCompatActivity() {
                 loadUrl("file:///android_asset/html/daily_report_show.html")
             }
             findViewById<Button>(R.id.dailyReportShowButtonToEdit).setOnClickListener(ButtonToEditClickListener(this, value))
+            shareUrlView.accessKey = value.accessKey
         }
 
     override fun onStart() {
@@ -45,6 +47,8 @@ class DailyReportShowActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_daily_report_show)
+
+        shareUrlView = findViewById(R.id.daily_report_show_share_url)
 
         dailyReport = intent.getSerializableExtra(DAILY_REPORT) as DailyReport
 
