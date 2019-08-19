@@ -18,13 +18,13 @@ class DailyReportShareURL : FrameLayout {
         set(value) {
             field = value
 
-            if (value != null) {
+            if (value.isNullOrBlank()) {
+                groupShared.visibility = View.GONE
+                btnShare.visibility = View.VISIBLE
+            } else {
                 groupShared.visibility = View.VISIBLE
                 btnShare.visibility = View.GONE
                 textEditURL.setText(value)
-            } else {
-                groupShared.visibility = View.GONE
-                btnShare.visibility = View.VISIBLE
             }
         }
 
