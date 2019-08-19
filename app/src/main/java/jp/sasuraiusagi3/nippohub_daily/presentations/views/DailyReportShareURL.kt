@@ -14,7 +14,19 @@ class DailyReportShareURL : FrameLayout {
     private val btnShare: Button
     private val textEditURL: EditText
     private val btnStopSharing: Button
-    var shareURL: String? = null
+    var accessKey: String? = null
+        set(value) {
+            field = value
+
+            if (value != null) {
+                groupShared.visibility = View.VISIBLE
+                btnShare.visibility = View.GONE
+                textEditURL.setText(value)
+            } else {
+                groupShared.visibility = View.GONE
+                btnShare.visibility = View.VISIBLE
+            }
+        }
 
     constructor(context: Context) : super(context)
 
