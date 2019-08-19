@@ -1,5 +1,6 @@
 package jp.sasuraiusagi3.nippohub_daily.presentations.views
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.util.AttributeSet
 import android.view.View
@@ -15,6 +16,7 @@ class DailyReportShareURL : FrameLayout {
     private val textEditURL: EditText
     private val btnStopSharing: Button
     var accessKey: String? = null
+        @SuppressLint("SetTextI18n")
         set(value) {
             field = value
 
@@ -24,7 +26,7 @@ class DailyReportShareURL : FrameLayout {
             } else {
                 groupShared.visibility = View.VISIBLE
                 btnShare.visibility = View.GONE
-                textEditURL.setText(value)
+                textEditURL.setText("https://nippohub.com/daily_reports/public/$value")
             }
         }
 
