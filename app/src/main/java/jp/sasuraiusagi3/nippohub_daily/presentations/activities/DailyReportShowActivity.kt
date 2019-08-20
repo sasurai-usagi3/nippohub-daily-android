@@ -13,15 +13,27 @@ import androidx.appcompat.app.AppCompatActivity
 import jp.sasuraiusagi3.nippohub_daily.R
 import jp.sasuraiusagi3.nippohub_daily.listeners.ButtonToBackClickListener
 import jp.sasuraiusagi3.nippohub_daily.models.DailyReport
+import jp.sasuraiusagi3.nippohub_daily.presentations.views.DailyReportShareURL
 import jp.sasuraiusagi3.nippohub_daily.repositories.UserRepository
+import jp.sasuraiusagi3.nippohub_daily.use_cases.DailyReportShareUseCase
 
 class DailyReportShowActivity : AppCompatActivity() {
-    companion object {
-        const val DAILY_REPORT = "dailyReport"
+    lateinit var shareUrlView: DailyReportShareURL
+    private var dailyReport: DailyReport? = null
+        @SuppressLint("SetJavaScriptEnabled")
+        set(value) {
+            field = value
 
-        fun build(context: Context, dailyReport: DailyReport) =
-                Intent(context, DailyReportShowActivity::class.java).putExtra(DAILY_REPORT, dailyReport)
-    }
+            value ?: return
+
+            findViewById<WebView>(R.id.daily_report_show_web_view).apply {
+                webViewClient = WebClientForDailyReport(value)
+                settings.javaScriptEnabled = true
+                loadUrl("file:///android_asset/html/daily_report_show.html")
+            }
+            findViewById<Button>(R.id.dailyReportShowButtonToEdit).setOnClickListener(ButtonToEditClickListener(this, value))
+            shareUrlView.accessKey = value.accessKey
+        }
 
     override fun onStart() {
         super.onStart()
@@ -37,8 +49,28 @@ class DailyReportShowActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_daily_report_show)
 
-        val dailyReport = intent.getSerializableExtra(DAILY_REPORT) as DailyReport
-        setDailyReport(dailyReport)
+        shareUrlView = findViewById<DailyReportShareURL>(R.id.daily_report_show_share_url).apply {
+            onClickShare = {
+                UserRepository.currentUser?.let {currentUser ->
+                    dailyReport?.let {
+                        val accessKey = DailyReportShareUseCase.share(currentUser, it)
+                        dailyReport = it.copy(accessKey = accessKey)
+                    }
+                }
+            }
+
+            onClickStopSharing = {
+                UserRepository.currentUser?.let { currentUser ->
+                    dailyReport?.let {
+                        DailyReportShareUseCase.stopSharing(currentUser, it)
+                        dailyReport = it.copy(accessKey = null)
+                    }
+                }
+            }
+        }
+
+        dailyReport = intent.getSerializableExtra(DAILY_REPORT) as DailyReport
+
         findViewById<Button>(R.id.daily_report_show_button_to_back).setOnClickListener(ButtonToBackClickListener(this))
     }
 
@@ -47,19 +79,7 @@ class DailyReportShowActivity : AppCompatActivity() {
 
         data ?: return
 
-        val dailyReport = data.getSerializableExtra(DAILY_REPORT) as DailyReport
-        setDailyReport(dailyReport)
-    }
-
-    @SuppressLint("SetJavaScriptEnabled")
-    private fun setDailyReport(dailyReport: DailyReport) {
-
-        findViewById<WebView>(R.id.daily_report_show_web_view).apply {
-            webViewClient = WebClientForDailyReport(dailyReport)
-            settings.javaScriptEnabled = true
-            loadUrl("file:///android_asset/html/daily_report_show.html")
-        }
-        findViewById<Button>(R.id.dailyReportShowButtonToEdit).setOnClickListener(ButtonToEditClickListener(this, dailyReport))
+        dailyReport = data.getSerializableExtra(DAILY_REPORT) as DailyReport
     }
 
     private class WebClientForDailyReport(private val dailyReport: DailyReport) : WebViewClient() {
@@ -84,5 +104,12 @@ class DailyReportShowActivity : AppCompatActivity() {
 
             activity.startActivityForResult(intent, 0)
         }
+    }
+
+    companion object {
+        const val DAILY_REPORT = "dailyReport"
+
+        fun build(context: Context, dailyReport: DailyReport) =
+                Intent(context, DailyReportShowActivity::class.java).putExtra(DAILY_REPORT, dailyReport)
     }
 }

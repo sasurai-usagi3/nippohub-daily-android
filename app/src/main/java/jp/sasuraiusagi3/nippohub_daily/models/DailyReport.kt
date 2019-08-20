@@ -11,5 +11,6 @@ data class DailyReport(
         val id: String,
         val date: LocalDate,
         val title: String,
-        val content: String
+        val content: String,
+        val accessKey: String?
 ) : Serializable

@@ -25,6 +25,8 @@
     <string name="dialog_message_wrong_password">パスワードが違います。</string>
     <string name="dialog_message_not_same_password_with_confirmation">入力したパスワードが一致しません。</string>
     <string name="dialog_message_email_already_used">入力されたEmailはすでに登録されています。</string>
+    <string name="share">共有する</string>
+    <string name="stop_sharing">プライベートにする</string>
     <string-array name="settings">
         <item>利用規約</item>
         <item>プライバシーポリシー</item>
