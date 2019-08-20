@@ -15,6 +15,7 @@ import jp.sasuraiusagi3.nippohub_daily.listeners.ButtonToBackClickListener
 import jp.sasuraiusagi3.nippohub_daily.models.DailyReport
 import jp.sasuraiusagi3.nippohub_daily.presentations.views.DailyReportShareURL
 import jp.sasuraiusagi3.nippohub_daily.repositories.UserRepository
+import jp.sasuraiusagi3.nippohub_daily.use_cases.DailyReportShareUseCase
 
 class DailyReportShowActivity : AppCompatActivity() {
     lateinit var shareUrlView: DailyReportShareURL
@@ -48,7 +49,25 @@ class DailyReportShowActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_daily_report_show)
 
-        shareUrlView = findViewById(R.id.daily_report_show_share_url)
+        shareUrlView = findViewById<DailyReportShareURL>(R.id.daily_report_show_share_url).apply {
+            onClickShare = {
+                UserRepository.currentUser?.let {currentUser ->
+                    dailyReport?.let {
+                        val accessKey = DailyReportShareUseCase.share(currentUser, it)
+                        dailyReport = it.copy(accessKey = accessKey)
+                    }
+                }
+            }
+
+            onClickStopSharing = {
+                UserRepository.currentUser?.let { currentUser ->
+                    dailyReport?.let {
+                        DailyReportShareUseCase.stopSharing(currentUser, it)
+                        dailyReport = it.copy(accessKey = null)
+                    }
+                }
+            }
+        }
 
         dailyReport = intent.getSerializableExtra(DAILY_REPORT) as DailyReport
 
