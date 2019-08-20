@@ -75,7 +75,7 @@ object DailyReportRepository {
     fun update(user: User, dailyReport: DailyReport) {
         instance
                 .getReference("/users/${user.id}/daily_reports/${dailyReport.id}")
-                .setValue(
+                .updateChildren(
                         mapOf(
                                 "date" to dailyReport.date.toString(),
                                 "title" to dailyReport.title,
