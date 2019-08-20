@@ -94,7 +94,7 @@ object DailyReportRepository {
     fun updateAccessKey(user: User, dailyReport: DailyReport, accessKey: String?) {
         instance
                 .getReference("/users/${user.id}/daily_reports/${dailyReport.id}")
-                .setValue(
+                .updateChildren(
                         mapOf(
                                 "access_key" to accessKey
                         )
