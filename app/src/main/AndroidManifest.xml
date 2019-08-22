@@ -27,7 +27,8 @@
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-                <data android:scheme="nippohub" android:host="nippohub" />
+                <data android:scheme="nippohub" android:host="nippohub" android:pathPrefix="/" />
+                <data android:scheme="https" android:host="nippohub.com" android:pathPattern="/daily_reports/public/.*" />
             </intent-filter>
         </activity>
         <activity android:name="jp.sasuraiusagi3.nippohub_daily.presentations.activities.SettingsActivity" />
